@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.section {
+    margin-bottom: 20px;
+}
+.section h2 {
+    margin-bottom: 10px;
+}
+.section p {
+    margin: 0;
+}
+.row{
+    margin-right: 0;
+}
+#profilepic{
+    clip-path: circle();
+}
+.center{
+    text-align: center;
+    
+}
+ul {
+    text-align: left;
+    margin-left: 40%;
+    list-style-position: inside;
+    padding-left: 0;
+}
+p{
+    text-align: left;
+    margin-left: 40%;
+}
+@media screen and (max-width: 1500px) {
+    p{
+        text-align: center;
+        margin-left: 0;
+    }
+    
+}
