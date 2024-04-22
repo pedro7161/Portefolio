@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-html-form',
+  standalone: true,
+  imports: [],
   templateUrl: './html-form.component.html',
-  styleUrls: ['./html-form.component.css']
+  styleUrl: './html-form.component.css'
 })
 export class HtmlFormComponent {
 

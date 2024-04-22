@@ -1,40 +1,44 @@
 <nav class="navbar menudiv">
+  <div class="navbar-logo menuitem">
+    <li class=""><a href="/">Profile</a></li>
+   </div>
     <div class="navbar-logo menuitem">
-      <li class=""><a routerLink="/" (click)="opensub(0)">Profile </a></li>
+      
+      <li class=""><a href="/" (click)="opensub(0)">MainHome </a></li>
       <div class="submenu" [style.display]="navSub[0]">
           <div class="navbar-logo menuitem">
-            <li class=""><a routerLink="/">subHome</a></li>
+            <li class=""><a href="/">subHome</a></li>
           </div>
           <div class="navbar-logo menuitem">
-            <li class=""><a routerLink="/">subHome2</a></li>
+            <li class=""><a href="/">subHome2</a></li>
           </div>
           <div class="navbar-logo menuitem">
-            <li class=""><a routerLink="/">subHome3</a></li>
+            <li class=""><a href="/">subHome3</a></li>
           </div>
       </div>
     </div>
 
     <div class="navbar-logo menuitem">
-     <li class=""><a routerLink="/" (click)="opensub(1)">HTML</a></li>
+     <li class=""><a href="/" (click)="opensub(1)">Home</a></li>
             <div class="submenu" [style.display]="navSub[1]">
               <div class="navbar-logo menuitem">
-                <li class=""><a routerLink="/html-form">Form</a></li>
+                <li class=""><a  href="/html-form">subHome</a></li>
               </div>
               <div class="navbar-logo menuitem">
-                <li class=""><a routerLink="/">subHome2</a></li>
+                <li class=""><a href="/">subHome2</a></li>
               </div>
               <div class="navbar-logo menuitem">
-                <li class=""><a routerLink="/">subHome3</a></li>
+                <li class=""><a href="/">subHome3</a></li>
               </div>
           </div>
     </div>
 
     <div class="navbar-logo menuitem">
-     <li class=""><a routerLink="/">Home</a></li>
+     <li class=""><a href="/">Home</a></li>
     </div>
 
     <div class="navbar-logo menuitem">
-     <li class=""><a routerLink="/">Home</a></li>
+     <li class=""><a href="/">Home</a></li>
     </div>
 
    
@@ -42,4 +46,3 @@
       <!-- Add login/logout buttons or user-related actions here -->
     </div>
   </nav>
-<app-home></app-home>
