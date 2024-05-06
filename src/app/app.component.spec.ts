@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [AppComponent], // Import the module that declares AppComponent
     }).compileComponents();
   });
 
@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'portefolio' title`, () => {
+  it(`should have the 'Hello, portefolio' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('portefolio');
+    expect(app.title).toEqual('Hello, portefolio'); // Check for 'Hello, portefolio' instead of 'portefolio'
   });
 
   it('should render title', () => {

@@ -1,48 +1,47 @@
 <nav class="navbar menudiv">
-  <div class="navbar-logo menuitem">
-    <li class=""><a href="/">Profile</a></li>
-   </div>
+  <!-- Hamburger Icon with click event binding -->
+  <div class="hamburger-icon" (click)="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Navigation Container -->
+  <div class="navigation-container" [class.active]="menuOpen">
+    <!-- Menu items -->
     <div class="navbar-logo menuitem">
-      
-      <li class=""><a href="/" (click)="opensub(0)">MainHome </a></li>
+      <li><a href="/">Profile</a></li>
+    </div>
+    <div class="navbar-logo menuitem">
+      <li><a (click)="opensub(0)">MainHome</a></li>
       <div class="submenu" [style.display]="navSub[0]">
-          <div class="navbar-logo menuitem">
-            <li class=""><a href="/">subHome</a></li>
-          </div>
-          <div class="navbar-logo menuitem">
-            <li class=""><a href="/">subHome2</a></li>
-          </div>
-          <div class="navbar-logo menuitem">
-            <li class=""><a href="/">subHome3</a></li>
-          </div>
+        <div class="navbar-logo submenuitem">
+          <li><a href="/future">subHome</a></li>
+        </div>
+        <div class="navbar-logo submenuitem">
+          <li><a href="/future">subHome2</a></li>
+        </div>
+        <div class="navbar-logo submenuitem">
+          <li><a href="/future">subHome3</a></li>
+        </div>
       </div>
     </div>
-
     <div class="navbar-logo menuitem">
-     <li class=""><a href="/" (click)="opensub(1)">Home</a></li>
-            <div class="submenu" [style.display]="navSub[1]">
-              <div class="navbar-logo menuitem">
-                <li class=""><a  href="/html-form">subHome</a></li>
-              </div>
-              <div class="navbar-logo menuitem">
-                <li class=""><a href="/">subHome2</a></li>
-              </div>
-              <div class="navbar-logo menuitem">
-                <li class=""><a href="/">subHome3</a></li>
-              </div>
-          </div>
+      <li><a (click)="opensub(1)">HTML</a></li>
+      <div class="submenu" [style.display]="navSub[1]">
+        <div class="navbar-logo submenuitem">
+          <li><a href="/html-form">Form</a></li>
+        </div>
+        <div class="navbar-logo submenuitem">
+          <li><a href="/future">subHome2</a></li>
+        </div>
+        <div class="navbar-logo submenuitem">
+          <li><a href="/future">subHome3</a></li>
+        </div>
+      </div>
     </div>
-
     <div class="navbar-logo menuitem">
-     <li class=""><a href="/">Home</a></li>
+      <li><a>Contacts</a></li>
     </div>
-
-    <div class="navbar-logo menuitem">
-     <li class=""><a href="/">Home</a></li>
-    </div>
-
-   
-    <div class="navbar-actions">
-      <!-- Add login/logout buttons or user-related actions here -->
-    </div>
-  </nav>
+  </div>
+</nav>

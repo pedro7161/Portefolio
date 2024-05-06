@@ -1,4 +1,5 @@
-.menudiv{
+/* Default styles for the menu */
+.menudiv {
     flex: content;
     flex-wrap: wrap;
     display: flex;
@@ -9,8 +10,9 @@
     border-radius: 10px;
     background-color: #f0f0f0;
     box-shadow: 5px 5px 5px #888888;
-}
-.menuitem{
+  }
+  
+  .menuitem {
     padding: 10px;
     margin: 10px;
     border: 1px solid black;
@@ -18,20 +20,92 @@
     background-color: #f0f0f0;
     box-shadow: 5px 5px 5px #888888;
     list-style-type: none;
-}
-.menuitem:hover{
+    display: inline-block; /* Display menu items horizontally */
+    position: relative; /* Establish positioning context for absolute submenu */
+  }
+  
+  .submenu {
+    display: none; /* Initially hide submenu */
+    position: absolute;
+    top: 100%; /* Position the submenu below its parent */
+    left: 0; /* Align the submenu with the left edge of its parent */
+    z-index: 1000; /* Ensure the submenu appears above other content */
+  }
+  
+  .menuitem:hover .submenu {
+    display: flex; /* Show submenu on hover */
+    flex-direction: column; /* Stack submenu items vertically */
+  }
+  
+  .submenuitem {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 5px 5px 5px #888888;
+    list-style-type: none;
+  }
+  
+  .menuitem:hover {
     background-color: #d0d0d0;
     cursor: pointer;
-}
-
-.submenu{
-    /* display: var(--livro,block); */
-    /* display: block; */
-
-    border: 1px solid black;
-    border-radius: 1px;
-    background-color: #f0f0f0;
-    list-style-type: none;
-    position: absolute;
-}
-
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Hamburger Icon */
+  .hamburger-icon {
+    display: none; /* Initially hidden */
+    cursor: pointer;
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  .hamburger-icon .line {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 768px) {
+    /* Hide the menu items by default */
+    .menudiv .menuitem {
+      display: none;
+    }
+  
+    /* Show the hamburger icon */
+    .hamburger-icon {
+      display: block;
+    }
+  
+    /* Show the navigation container when the hamburger icon is clicked */
+    .navigation-container {
+      display: none;
+      flex-direction: column;
+      background-color: #f9f9f9;
+      padding: 10px;
+      position: absolute;
+      top: 50px; /* Adjust as needed */
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+  
+    /* Active class to display navigation container */
+    .navigation-container.active {
+      display: flex;
+    }
+  
+    /* Override display: none; for menu items inside navigation-container */
+    .navigation-container.active .menuitem {
+      display: block;
+      margin: 5px 0; /* Adjust margins to reduce vertical spacing */
+      padding: 5px; /* Adjust padding to reduce horizontal spacing */
+    }
+  }
+  

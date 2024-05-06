@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-html-form',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './html-form.component.css'
 })
 export class HtmlFormComponent {
-
+  
 }
