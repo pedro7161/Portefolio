@@ -28,5 +28,8 @@ export class MenuComponent {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
+  navigateTo(path: string) {
+    window.location.href = path; // Navigate directly using window.location
+  }
 
 }

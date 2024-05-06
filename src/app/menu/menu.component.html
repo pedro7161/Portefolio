@@ -10,19 +10,19 @@
   <div class="navigation-container" [class.active]="menuOpen">
     <!-- Menu items -->
     <div class="navbar-logo menuitem">
-      <li><a href="/">Profile</a></li>
+      <li><a (click)="navigateTo('/')">Profile</a></li>
     </div>
     <div class="navbar-logo menuitem">
       <li><a (click)="opensub(0)">MainHome</a></li>
       <div class="submenu" [style.display]="navSub[0]">
         <div class="navbar-logo submenuitem">
-          <li><a href="/future">subHome</a></li>
+          <li><a (click)="navigateTo('/future')">subHome</a></li>
         </div>
         <div class="navbar-logo submenuitem">
-          <li><a href="/future">subHome2</a></li>
+          <li><a (click)="navigateTo('/future')">subHome2</a></li>
         </div>
         <div class="navbar-logo submenuitem">
-          <li><a href="/future">subHome3</a></li>
+          <li><a (click)="navigateTo('/future')">subHome3</a></li>
         </div>
       </div>
     </div>
@@ -30,13 +30,13 @@
       <li><a (click)="opensub(1)">HTML</a></li>
       <div class="submenu" [style.display]="navSub[1]">
         <div class="navbar-logo submenuitem">
-          <li><a href="/html-form">Form</a></li>
+          <li><a (click)="navigateTo('/html-form')">Form</a></li>
         </div>
         <div class="navbar-logo submenuitem">
-          <li><a href="/future">subHome2</a></li>
+          <li><a (click)="navigateTo('/future')">subHome2</a></li>
         </div>
         <div class="navbar-logo submenuitem">
-          <li><a href="/future">subHome3</a></li>
+          <li><a (click)="navigateTo('/future')">subHome3</a></li>
         </div>
       </div>
     </div>
