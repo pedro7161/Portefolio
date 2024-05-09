@@ -9,34 +9,34 @@
   <!-- Navigation Container -->
   <div class="navigation-container" [class.active]="menuOpen">
     <!-- Menu items -->
-    <div class="navbar-logo menuitem">
-      <li><a (click)="navigateTo('/')">Profile</a></li>
+    <div class="navbar-logo menuitem" (click)="navigateTo('/')">
+      <li><a>Profile</a></li>
     </div>
-    <div class="navbar-logo menuitem">
-      <li><a (click)="opensub(0)">MainHome</a></li>
+    <div class="navbar-logo menuitem" (click)="opensub(0)">
+      <li><a>MainHome</a></li>
       <div class="submenu" [style.display]="navSub[0]">
-        <div class="navbar-logo submenuitem">
-          <li><a (click)="navigateTo('/future')">subHome</a></li>
+        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
+          <li><a>subHome</a></li>
         </div>
-        <div class="navbar-logo submenuitem">
-          <li><a (click)="navigateTo('/future')">subHome2</a></li>
+        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
+          <li><a>subHome2</a></li>
         </div>
-        <div class="navbar-logo submenuitem">
-          <li><a (click)="navigateTo('/future')">subHome3</a></li>
+        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
+          <li><a>subHome3</a></li>
         </div>
       </div>
     </div>
-    <div class="navbar-logo menuitem">
-      <li><a (click)="opensub(1)">HTML</a></li>
+    <div class="navbar-logo menuitem" (click)="opensub(1)">
+      <li><a>HTML</a></li>
       <div class="submenu" [style.display]="navSub[1]">
-        <div class="navbar-logo submenuitem">
-          <li><a (click)="navigateTo('/html-form')">Form</a></li>
+        <div class="navbar-logo submenuitem" (click)="navigateTo('/html-form')">
+          <li><a>Form</a></li>
         </div>
-        <div class="navbar-logo submenuitem">
-          <li><a (click)="navigateTo('/future')">subHome2</a></li>
+        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
+          <li><a>subHome2</a></li>
         </div>
-        <div class="navbar-logo submenuitem">
-          <li><a (click)="navigateTo('/future')">subHome3</a></li>
+        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
+          <li><a>subHome3</a></li>
         </div>
       </div>
     </div>
