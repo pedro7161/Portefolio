@@ -29,6 +29,20 @@ ul {
     list-style-position: inside;
     padding-left: 0;
 }
+.skillsL{
+    text-align: left;
+    margin-left: 80%;
+    margin-right: 0%;
+}
+.skillsR{
+    text-align: left;
+    margin-right: 0%;
+    margin-left: 0%;
+}
+.description{
+    text-align: left;
+    margin-left: 5%;
+}
 p{
     text-align: left;
     margin-left: 40%;
