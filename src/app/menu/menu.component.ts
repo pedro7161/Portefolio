@@ -7,7 +7,7 @@ import { FutureComponent } from '../future/future.component';
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent,HtmlFormComponent,FutureComponent],
+  imports: [RouterOutlet,HomeComponent,HtmlFormComponent,FutureComponent,MenuComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
@@ -29,7 +29,7 @@ export class MenuComponent {
     this.menuOpen = !this.menuOpen;
   }
   navigateTo(path: string) {
-    window.location.href = path; // Navigate directly using window.location
+    window.location.href = "/Portefolio/" + path; // Navigate directly using window.location
   }
 
 }

@@ -9,9 +9,10 @@
   <!-- Navigation Container -->
   <div class="navigation-container" [class.active]="menuOpen">
     <!-- Menu items -->
-    <div class="navbar-logo menuitem" (click)="navigateTo('/')">
-      <li><a>Profile</a></li>
+    <div class="navbar-logo menuitem">
+      <li><a (click)="navigateTo('/')">Profile</a></li>
     </div>
+    
     <div class="navbar-logo menuitem" (click)="opensub(0)">
       <li><a>MainHome</a></li>
       <div class="submenu" [style.display]="navSub[0]">
