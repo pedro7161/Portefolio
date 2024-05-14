@@ -29,7 +29,7 @@ export class MenuComponent {
     this.menuOpen = !this.menuOpen;
   }
   navigateTo(path: string) {
-    window.location.href = "/Portefolio/" + path; // Navigate directly using window.location
+    window.location.href = "/Portefolio" + path; // Navigate directly using window.location
   }
 
 }
