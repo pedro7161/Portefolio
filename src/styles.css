@@ -1,29 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: black !important; /* Your desired background color */
-    color: white !important;;
+    background-color: rgb(81, 88, 91) !important; /* Your desired background color */
+    color: white !important;
 }
-p{
-    color: white !important;;
-}
-h1{
-    color: white !important; /* Your desired text color */
-}
-h2{
-    color: white !important;;
-}
-h3{
-    color: white !important;;
-}
-h4{
-    color: white !important;;
-}
-h5{
-    color: white !important;;
-}
-h6{
-    color: white !important;;
-}
+
 a{
     color: black !important;;
 }
+nav{
+    background-color: rgb(32, 35, 37) !important;
+}
+nav a{
+    color: white !important;
+}
+

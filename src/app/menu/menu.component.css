@@ -6,19 +6,19 @@
     justify-content: right;
     align-items: right;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(140, 130, 115);
     border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 5px 5px 5px #888888;
+    background-color: #8f8c8c;
+    box-shadow: 5px 5px 5px #302f2f;
   }
   
   .menuitem {
     padding: 10px;
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(140, 130, 115);;
     border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 5px 5px 5px #888888;
+    background-color: #8f8c8c;
+    box-shadow: 5px 5px 5px #adabab;
     list-style-type: none;
     display: inline-block; /* Display menu items horizontally */
     position: relative; /* Establish positioning context for absolute submenu */
@@ -69,6 +69,9 @@
     height: 3px;
     background-color: black;
     margin: 5px;
+  }
+  .navbar-logo{
+    background-color: rgb(32, 35, 37);
   }
   
   /* Media query for small screens */
