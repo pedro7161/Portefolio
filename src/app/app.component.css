@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.site-footer {
+  padding-bottom: 2.5rem;
+}
+
+.footer-shell {
+  color: var(--text-faint);
+  font-size: 0.95rem;
+}

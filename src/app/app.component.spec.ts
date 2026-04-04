@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    localStorage.clear();
+
     await TestBed.configureTestingModule({
-      declarations: [AppComponent], // Import the module that declares AppComponent
+      imports: [AppComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 
@@ -14,16 +18,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Hello, portefolio' title`, () => {
+  it('should expose the updated application title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Hello, portefolio'); // Check for 'Hello, portefolio' instead of 'portefolio'
+    expect(app.title).toEqual('Pedro Pinto Portfolio');
   });
 
-  it('should render title', () => {
+  it('should render the main navigation', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, portefolio');
+    expect(compiled.querySelector('app-menu')).not.toBeNull();
   });
 });

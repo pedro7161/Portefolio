@@ -1,0 +1,140 @@
+.page-shell {
+  width: min(1180px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.projects-hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 2rem;
+  padding: 2rem;
+  background: var(--hero-panel-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.hero-copy {
+  max-width: 44rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.85rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-secondary);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.projects-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4.3rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.projects-hero p {
+  margin: 1rem 0 0;
+  max-width: 38rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.project-card,
+.github-panel {
+  border: 1px solid var(--border-soft);
+  border-radius: 1.7rem;
+  background: var(--surface-card);
+  box-shadow: var(--card-shadow);
+}
+
+.project-card {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 0.6rem minmax(0, 1fr);
+}
+
+.project-accent {
+  background: var(--brand-gradient);
+}
+
+.project-body,
+.github-panel {
+  padding: 1.5rem;
+}
+
+.project-meta {
+  color: var(--text-faint);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-card h2,
+.github-panel h2 {
+  margin-top: 0.7rem;
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+  letter-spacing: -0.04em;
+}
+
+.project-description,
+.project-impact,
+.github-panel p {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.project-impact {
+  margin-top: 0.8rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+}
+
+.tag {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--tag-border);
+  background: var(--tag-bg);
+  color: var(--text-main);
+  font-size: 0.82rem;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.4rem;
+}
+
+.github-panel {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100vw - 1rem, 1180px);
+    padding-top: 1.25rem;
+  }
+
+  .projects-hero,
+  .project-body,
+  .github-panel {
+    padding: 1.2rem;
+  }
+}

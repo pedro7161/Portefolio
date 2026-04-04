@@ -1,16 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
-import { HomeComponent } from './home/home.component';
-import { HtmlFormComponent } from './html-form/html-form.component';
-import { FutureComponent } from './future/future.component';
+import { LanguageService } from './language.service';
+import { getPortfolioContent } from './portfolio-content';
+import { ThemeService } from './theme.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,MenuComponent,HomeComponent,HtmlFormComponent,FutureComponent],
+  imports: [RouterOutlet, MenuComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'portefolio';
+  private readonly languageService = inject(LanguageService);
+  private readonly themeService = inject(ThemeService);
+
+  readonly content = computed(() => getPortfolioContent(this.languageService.language()));
+  readonly currentTheme = this.themeService.theme;
+  readonly title = 'Pedro Pinto Portfolio';
 }

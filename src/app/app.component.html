@@ -1,3 +1,13 @@
-<app-menu></app-menu>
+<div class="app-shell" [attr.data-theme]="currentTheme()">
+  <app-menu></app-menu>
 
-<router-outlet></router-outlet>
+  <main class="app-main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-shell">
+      {{ content().copy.footer }}
+    </div>
+  </footer>
+</div>

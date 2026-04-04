@@ -1,48 +1,93 @@
-<nav class="navbar menudiv">
-  <!-- Hamburger Icon with click event binding -->
-  <div class="hamburger-icon" (click)="toggleMenu()">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
+@if (content(); as page) {
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" routerLink="/" (click)="closeMenu()">
+        <span class="brand-mark">PP</span>
+        <span class="brand-copy">
+          <strong>Pedro Pinto</strong>
+          <span>{{ page.copy.hero.eyebrow }}</span>
+        </span>
+      </a>
 
-  <!-- Navigation Container -->
-  <div class="navigation-container" [class.active]="menuOpen">
-    <!-- Menu items -->
-    <div class="navbar-logo menuitem">
-      <li><a (click)="navigateTo('/')">Profile</a></li>
-    </div>
-    
-    <!-- <div class="navbar-logo menuitem" (click)="opensub(0)">
-      <li><a>MainHome</a></li>
-      <div class="submenu" [style.display]="navSub[0]">
-        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
-          <li><a>subHome</a></li>
-        </div>
-        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
-          <li><a>subHome2</a></li>
-        </div>
-        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
-          <li><a>subHome3</a></li>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="menuOpen"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="header-controls" [class.is-open]="menuOpen">
+        <nav class="site-nav" aria-label="Primary">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
+          >
+            {{ page.copy.nav.profile }}
+          </a>
+          <a
+            class="nav-link"
+            routerLink="/projects"
+            routerLinkActive="is-active"
+            (click)="closeMenu()"
+          >
+            {{ page.copy.nav.projects }}
+          </a>
+        </nav>
+
+        <div class="menu-switchers">
+          <div class="control-switcher" [attr.aria-label]="page.copy.nav.language">
+            <span class="control-label">{{ page.copy.nav.language }}</span>
+            <div class="control-buttons">
+              <button
+                class="control-button"
+                type="button"
+                [class.is-active]="currentLanguage() === 'en'"
+                (click)="setLanguage('en')"
+              >
+                EN
+              </button>
+              <button
+                class="control-button"
+                type="button"
+                [class.is-active]="currentLanguage() === 'pt-PT'"
+                (click)="setLanguage('pt-PT')"
+              >
+                PT-PT
+              </button>
+            </div>
+          </div>
+
+          <div class="control-switcher" [attr.aria-label]="page.copy.nav.theme">
+            <span class="control-label">{{ page.copy.nav.theme }}</span>
+            <div class="control-buttons">
+              <button
+                class="control-button"
+                type="button"
+                [class.is-active]="currentTheme() === 'dark'"
+                (click)="setTheme('dark')"
+              >
+                {{ page.copy.nav.dark }}
+              </button>
+              <button
+                class="control-button"
+                type="button"
+                [class.is-active]="currentTheme() === 'light'"
+                (click)="setTheme('light')"
+              >
+                {{ page.copy.nav.light }}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="navbar-logo menuitem" (click)="opensub(1)">
-      <li><a>HTML</a></li>
-      <div class="submenu" [style.display]="navSub[1]">
-        <div class="navbar-logo submenuitem" (click)="navigateTo('/html-form')">
-          <li><a>Form</a></li>
-        </div>
-        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
-          <li><a>subHome2</a></li>
-        </div>
-        <div class="navbar-logo submenuitem" (click)="navigateTo('/future')">
-          <li><a>subHome3</a></li>
-        </div>
-      </div>
-    </div>
-    <div class="navbar-logo menuitem">
-      <li><a>Contacts</a></li>
-    </div>-->
-  </div> 
-</nav>
+  </header>
+}

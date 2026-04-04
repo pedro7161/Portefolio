@@ -1,0 +1,49 @@
+@if (content(); as page) {
+  <section class="page-shell">
+    <header class="projects-hero">
+      <div class="hero-copy">
+        <div class="eyebrow">{{ page.copy.projectPage.eyebrow }}</div>
+        <h1>{{ page.copy.projectPage.title }}</h1>
+        <p>{{ page.copy.projectPage.lead }}</p>
+      </div>
+    </header>
+
+    <section class="projects-grid">
+      @for (project of page.projects; track project.title) {
+        <article class="project-card">
+          <div class="project-accent"></div>
+          <div class="project-body">
+            <div class="project-meta">{{ page.copy.projectPage.projectMeta }}</div>
+            <h2>{{ project.title }}</h2>
+            <p class="project-description">{{ project.description }}</p>
+            <p class="project-impact">{{ project.impact }}</p>
+
+            <div class="tag-list">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="project-actions">
+              <a class="primary-action" [href]="project.liveUrl" target="_blank" rel="noreferrer">
+                {{ page.copy.projectPage.liveLabel }}
+              </a>
+              <a class="secondary-action" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">
+                {{ page.copy.projectPage.repositoryLabel }}
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </section>
+
+    <aside class="github-panel">
+      <div class="eyebrow">{{ page.copy.projectPage.githubEyebrow }}</div>
+      <h2>{{ page.copy.projectPage.moreTitle }}</h2>
+      <p>{{ page.copy.projectPage.moreDescription }}</p>
+      <a class="secondary-action" [href]="page.profileLinks.github" target="_blank" rel="noreferrer">
+        {{ page.copy.projectPage.moreCta }}
+      </a>
+    </aside>
+  </section>
+}
