@@ -1,0 +1,50 @@
+@if (content(); as page) {
+  <section class="page-shell">
+    <header class="projects-hero bg-hero-panel rounded-xl p-10 mb-14">
+      <div class="hero-copy max-w-3xl space-y-6">
+        <div class="eyebrow">{{ page.copy.projectPage.eyebrow }}</div>
+        <h1 class="text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.projectPage.title }}</h1>
+        <p class="text-xl text-text-muted leading-relaxed">{{ page.copy.projectPage.lead }}</p>
+      </div>
+    </header>
+
+    <section class="projects-grid grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+      @for (project of page.projects; track project.title) {
+        <article class="project-card section-card group relative overflow-hidden">
+          <div class="project-accent absolute top-0 left-0 w-1 h-full bg-accent-primary"></div>
+
+          <div class="project-body pl-6 space-y-5">
+            <div class="project-meta text-xs text-text-muted uppercase tracking-widest font-medium">{{ page.copy.projectPage.projectMeta }}</div>
+            <h2 class="text-2xl font-bold text-text-main">{{ project.title }}</h2>
+            <p class="project-description text-text-muted leading-relaxed">{{ project.description }}</p>
+            <p class="project-impact text-text-faint leading-relaxed">{{ project.impact }}</p>
+
+            <div class="tag-list flex flex-wrap gap-3 pt-2">
+              @for (tag of project.tags; track tag) {
+                <span class="skill-pill text-xs">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="project-actions flex flex-wrap gap-3 pt-2">
+              <a class="primary-action text-sm" [href]="project.liveUrl" target="_blank" rel="noreferrer">
+                {{ page.copy.projectPage.liveLabel }}
+              </a>
+              <a class="secondary-action text-sm" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">
+                {{ page.copy.projectPage.repositoryLabel }}
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </section>
+
+    <aside class="github-panel section-card text-center py-16 space-y-6">
+      <div class="eyebrow">{{ page.copy.projectPage.githubEyebrow }}</div>
+      <h2 class="text-4xl font-display font-bold text-text-main">{{ page.copy.projectPage.moreTitle }}</h2>
+      <p class="text-text-muted max-w-2xl mx-auto text-lg leading-relaxed">{{ page.copy.projectPage.moreDescription }}</p>
+      <a class="secondary-action inline-block" [href]="page.profileLinks.github" target="_blank" rel="noreferrer">
+        {{ page.copy.projectPage.moreCta }}
+      </a>
+    </aside>
+  </section>
+}

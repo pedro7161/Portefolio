@@ -1,107 +1,190 @@
-<div class="center container">
-    <h1>Resume</h1>
+@if (content(); as page) {
+  <section class="page-shell profile-page">
+    <section class="hero-panel">
+      <article class="flex flex-col justify-center space-y-6">
+        <div class="eyebrow">{{ page.copy.hero.eyebrow }}</div>
+        <h1 class="text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.hero.name }}</h1>
+        <p class="text-2xl md:text-3xl font-display font-bold text-accent-primary leading-snug">{{ page.copy.hero.role }}</p>
 
-    <div class="row">
-        <h1>Personal Information</h1>
-        <div>
-            <img id="profilepic" src="https://media.licdn.com/dms/image/D4D35AQES96Y8cYlwCg/profile-framedphoto-shrink_200_200/0/1694104432227?e=1722949200&v=beta&t=XP0lfVlCncJc5dfyE9AQK5MIlojRHFLmmI5ebvdWLeI" alt="Profile Picture">
+        <div class="hero-summary space-y-5 max-w-lg pt-2">
+          @for (paragraph of page.copy.hero.summary; track paragraph) {
+            <p class="text-text-muted leading-relaxed text-lg">{{ paragraph }}</p>
+          }
         </div>
-        <div>
-           
-            <p>Name: Pedro Pinto</p>
-            <p>Email: pedro.ramos9&#64;hotmail.com</p>
-            <p>Phone: 968495576</p>
-        </div>
-    </div>
 
-    
-    <div>
-        <h1>Experience</h1>
-        <p><b>Company: BLASTING Energy</b></p>
-        <p>Location: Lisboa, Portugal</p>
-        <p>Duration: 03/2023 - 06/2023</p>
-        <p><b>Position: Web Development Internship</b></p>
-        <ul>
-            <li class="description">I transitioned the <b></b> website from WordPress to Angular to expand my knowledge of a cutting-edge technology.</li>
-        </ul>
-        <p>Duration: 03/2020 - 08/2020</p>
-        <p><b>Position: Full Stack Engineer Internship</b></p>
-        <ul>
-            <li class="description">Increased performance of web-based applications by 25% in 3 months, resulting in improved user experience.</li>
-            <li class="description">Edited videos for the <b></b> where it helped increase the views on the page.</li>
-            <li class="description">Updated the Company logo Animation.</li>
-            <li class="description">Creation of 3D models to demonstrate in videos.</li>
-        </ul>
-        <p><b>Company: Partilha Fundamental LDA</b></p>
-        <p>Location: Lisboa e Região, Portugal</p>
-        <p>Duration: 05/2018 - 07/2018</p>
-        <p><b>Position: Internship</b></p>
-        <ul>
-            <li class="description">I made a flyer using Photoshop to help improve sales.</li>
-            <li class="description">I did flash animations to tell a story about the company.</li>
-            <li class="description">I made a mobile app for the company to answer a quiz about it.</li>
-        </ul>
-    </div>
+        <div class="hero-actions flex flex-wrap gap-4 pt-4">
+          <a class="primary-action" routerLink="/projects">{{ page.copy.hero.primaryCta }}</a>
+          <a
+            class="secondary-action"
+            [href]="page.profileLinks.linkedin"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ page.copy.hero.secondaryCta }}
+          </a>
+        </div>
+      </article>
 
-    <div>
-        <h1>Education</h1>
-        <p><b>Degree: Bachelor's in Computer Science</b></p>
-        <p>University: ISTEC</p>
-        <p>Duration: 09/2020 - 08/2023</p>
-        <p><b>Degree: CTESP in Multimedia Product Development</b></p>
-        <p>University: ISTEC</p>
-        <p>GPA: 15|20</p>
-        <p>Duration: 09/2018 - 08/2020</p>
-        <p><b>Degree: Level 4 in Technician in Management and Programming of Computer Systems</b></p>
-        <p>University: Professional School - Gustave Eiffel</p>
-        <p>GPA: 15|20</p>
-        <p>Duration: 09/2015 - 07/2018</p>
-    </div>
-    <h1>Skills</h1>
-    <div class="row">
-        <div class="col">
-            <ul class="skillsL">
-                <li>Python</li>
-                <li>C#</li>
-                <li>Java</li>
-                <li>JavaScript</li>
-                <li>CSS</li>
-                <li>PHP</li>
-                <li>React</li>
-                <li>SQL</li>
-                <li>Rest</li>
-                <li>TypeScript</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>.NET</li>
-               
-                <li>C++</li>
-                <li>Swift</li>
-            </ul>
+      <aside class="section-card profile-card flex flex-col justify-center">
+        <div class="profile-card-copy mb-8">
+          <h2 class="text-3xl font-display font-bold text-text-main mb-2">{{ page.copy.hero.name }}</h2>
+          <p class="text-lg text-text-muted">{{ page.copy.hero.role }}</p>
         </div>
-        <div class="col">
-            <ul class="skillsR">
-                <li>FullStack</li>
-                <li>Frontend</li>
-                <li>Backend</li>
-                <li>Adobe Illustrator</li>
-                <li>Microsoft Windows</li>
-                <li>Linux</li>
-                <li>.NET Core</li>
-                <li>Docker</li>
-                <li>Git</li>
-                <li>Azure</li>
-                <li>Django</li>
-                <li>.NET Framework</li>
-                <li>Inglês</li>
-                <li>JSON</li>
-                <li>Data Science</li>
-                <li>Angular (Framework)</li>
-                <li>Adobe Premiere Pro</li>
-                <li>API REST</li>
-             
-                
-            </ul>
+
+        <div class="fact-grid space-y-4">
+          <div class="fact-item">
+            <span class="fact-label">{{ page.copy.hero.locationLabel }}</span>
+            <strong class="text-text-main text-base">{{ page.experience[0].location }}</strong>
+          </div>
+
+          <div class="fact-item">
+            <span class="fact-label">{{ page.copy.hero.currentRoleLabel }}</span>
+            <strong class="text-text-main text-base">{{ page.experience[0].title }} · {{ page.experience[0].company }}</strong>
+          </div>
+
+          <div class="fact-item">
+            <span class="fact-label">{{ page.copy.hero.educationLabel }}</span>
+            <strong class="text-text-main text-base">{{ page.education[0].degree }}</strong>
+          </div>
+
+          <div class="fact-item">
+            <span class="fact-label">{{ page.copy.hero.contactLabel }}</span>
+            <a class="text-accent-primary hover:underline text-base" [href]="page.contacts[0].href">{{ page.contacts[0].value }}</a>
+          </div>
         </div>
-    </div>
-</div>
+      </aside>
+    </section>
+
+    <section class="content-grid">
+      <article class="section-card col-span-1 md:col-span-2">
+        <header class="section-header mb-10 pb-8 border-b border-border-soft">
+          <div class="mb-4">
+            <div class="eyebrow">{{ page.copy.sections.experience }}</div>
+            <h2 class="text-4xl font-display font-bold text-text-main mt-3">{{ page.copy.sections.experience }}</h2>
+          </div>
+          <p class="text-text-muted text-lg leading-relaxed max-w-2xl">{{ page.copy.sections.experienceLead }}</p>
+        </header>
+
+        <div class="timeline">
+          @for (entry of page.experience; track entry.company + entry.period) {
+            <article class="timeline-entry">
+              <div class="entry-header flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+                <div>
+                  <h3 class="text-xl font-bold text-text-main">{{ entry.title }}</h3>
+                  <p class="text-text-muted">{{ entry.company }} · {{ entry.employmentType }}</p>
+                </div>
+                <span class="entry-period text-sm text-text-muted font-medium">{{ entry.period }}</span>
+              </div>
+
+              <div class="entry-location text-sm text-text-faint">{{ entry.location }}</div>
+            </article>
+          }
+        </div>
+      </article>
+
+      <article class="section-card">
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
+            <div class="eyebrow">{{ page.copy.sections.education }}</div>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.education }}</h2>
+          </div>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.educationLead }}</p>
+        </header>
+
+        <div class="stack-list">
+          @for (entry of page.education; track entry.degree + entry.period) {
+            <article class="list-card">
+              <h3 class="font-bold text-text-main mb-1">{{ entry.degree }}</h3>
+              <div class="list-meta text-xs text-text-muted mb-3">{{ entry.school }} · {{ entry.period }}</div>
+              @for (detail of entry.details; track detail) {
+                <p class="text-sm text-text-faint">{{ detail }}</p>
+              }
+            </article>
+          }
+        </div>
+      </article>
+
+      <article class="section-card">
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
+            <div class="eyebrow">{{ page.copy.sections.certifications }}</div>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.certifications }}</h2>
+          </div>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.certificationsLead }}</p>
+        </header>
+
+        <div class="stack-list">
+          @for (entry of page.certifications; track entry.name) {
+            <article class="list-card">
+              <h3 class="font-bold text-text-main mb-1">{{ entry.name }}</h3>
+              <div class="list-meta text-xs text-text-muted mb-2">{{ entry.issuer }}</div>
+              <p class="text-sm text-text-faint mb-1">{{ entry.issued }}</p>
+              @if (entry.expires) {
+                <p class="text-sm text-text-faint mb-1">{{ entry.expires }}</p>
+              }
+              @if (entry.details) {
+                <p class="text-sm text-text-faint">{{ entry.details }}</p>
+              }
+            </article>
+          }
+        </div>
+      </article>
+
+      <article class="section-card">
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
+            <div class="eyebrow">{{ page.copy.sections.skills }}</div>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.skills }}</h2>
+          </div>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.skillsLead }}</p>
+        </header>
+
+        <div class="skill-groups">
+          @for (group of page.skillGroups; track group.title) {
+            <article class="skill-group">
+              <h3 class="font-semibold text-text-main">{{ group.title }}</h3>
+              <div class="skill-list">
+                @for (item of group.items; track item) {
+                  <span class="skill-pill">{{ item }}</span>
+                }
+              </div>
+            </article>
+          }
+        </div>
+      </article>
+
+      <article class="section-card">
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
+            <div class="eyebrow">{{ page.copy.sections.quickContact }}</div>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.quickContact }}</h2>
+          </div>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.quickContactLead }}</p>
+        </header>
+
+        <div class="contact-list">
+          @for (contact of page.contacts; track contact.label) {
+            <a
+              class="contact-item"
+              [href]="contact.href || null"
+              [attr.target]="isExternalLink(contact.href) ? '_blank' : null"
+              [attr.rel]="isExternalLink(contact.href) ? 'noreferrer' : null"
+            >
+              <span class="contact-label">{{ contact.label }}</span>
+              <span class="contact-value">{{ contact.value }}</span>
+            </a>
+          }
+        </div>
+
+        <div class="contact-footer flex flex-wrap gap-4 mt-6">
+          <a class="secondary-action" [href]="page.profileLinks.github" target="_blank" rel="noreferrer">
+            {{ page.copy.projectPage.profileLabel }}
+          </a>
+          <a class="secondary-action" routerLink="/projects">
+            {{ page.copy.hero.primaryCta }}
+          </a>
+        </div>
+      </article>
+    </section>
+  </section>
+}

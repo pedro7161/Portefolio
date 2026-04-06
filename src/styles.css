@@ -1,16 +1,345 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-    background-color: rgb(81, 88, 91) !important; /* Your desired background color */
-    color: white !important;
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Chivo', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
 }
 
-a{
-    color: black !important;;
-}
-nav{
-    background-color: rgb(32, 35, 37) !important;
-}
-nav a{
-    color: white !important;
+:root[data-theme='dark'] {
+  --bg-canvas: #000000;
+  --bg-surface: rgba(0, 0, 0, 0.9);
+  --header-bg: rgba(0, 0, 0, 0.88);
+  --surface-card: rgba(0, 0, 0, 0.92);
+  --surface-strong: rgba(0, 0, 0, 0.9);
+  --surface-hover: rgba(0, 0, 0, 0.94);
+  --border-soft: rgba(74, 84, 96, 0.5);
+  --border-strong: rgba(99, 110, 125, 0.72);
+  --text-main: #ffffff;
+  --text-muted: #ffffff;
+  --text-faint: #e8e8e8;
+  --accent-primary: #79d0e2;
+  --accent-secondary: #ffffff;
+  --accent-tertiary: #ffffff;
+  --accent-contrast: #000000;
+  --tag-bg: rgba(0, 0, 0, 0.9);
+  --tag-border: rgba(78, 88, 100, 0.48);
+  --button-secondary-bg: rgba(0, 0, 0, 0.88);
+  --button-secondary-border: rgba(89, 100, 114, 0.62);
+  --brand-gradient: linear-gradient(135deg, #7fd2e4, #9dc5ef);
+  --hero-panel-bg:
+    radial-gradient(circle at top right, rgba(121, 208, 226, 0.09), transparent 32%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.98));
+  --hero-card-bg:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.98));
+  --page-background:
+    radial-gradient(circle at top left, rgba(120, 130, 143, 0.12), transparent 22%),
+    radial-gradient(circle at 88% 12%, rgba(94, 142, 170, 0.12), transparent 18%),
+    linear-gradient(180deg, #000000 0%, #000000 48%, #000000 100%);
+  --orb-a: rgba(102, 117, 132, 0.2);
+  --orb-b: rgba(86, 121, 148, 0.18);
+  --card-shadow: 0 32px 70px rgba(0, 0, 0, 0.28);
+  color-scheme: dark;
 }
 
+:root[data-theme='light'] {
+  --bg-canvas: #f5f7fa;
+  --bg-surface: rgba(255, 255, 255, 0.84);
+  --header-bg: rgba(248, 250, 252, 0.9);
+  --surface-card: rgba(255, 255, 255, 0.94);
+  --surface-strong: rgba(244, 247, 250, 0.98);
+  --surface-hover: rgba(235, 240, 245, 0.98);
+  --border-soft: rgba(169, 181, 194, 0.56);
+  --border-strong: rgba(133, 149, 165, 0.78);
+  --text-main: #16202b;
+  --text-muted: #4f6173;
+  --text-faint: #697d90;
+  --accent-primary: #1d6f88;
+  --accent-secondary: #3c82c9;
+  --accent-tertiary: #1b2f46;
+  --accent-contrast: #f5fbff;
+  --tag-bg: rgba(236, 242, 247, 0.94);
+  --tag-border: rgba(184, 197, 210, 0.84);
+  --button-secondary-bg: rgba(241, 245, 249, 0.98);
+  --button-secondary-border: rgba(182, 195, 208, 0.9);
+  --brand-gradient: linear-gradient(135deg, #1d6f88, #4e8cc8);
+  --hero-panel-bg:
+    radial-gradient(circle at top right, rgba(121, 208, 226, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(247, 250, 253, 0.98), rgba(236, 242, 247, 0.98));
+  --hero-card-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 247, 251, 0.98));
+  --page-background:
+    radial-gradient(circle at top left, rgba(143, 173, 203, 0.18), transparent 24%),
+    radial-gradient(circle at 88% 12%, rgba(121, 208, 226, 0.18), transparent 20%),
+    linear-gradient(180deg, #f6f8fb 0%, #eef3f8 48%, #e8eef5 100%);
+  --orb-a: rgba(186, 202, 217, 0.34);
+  --orb-b: rgba(146, 197, 214, 0.28);
+  --card-shadow: 0 24px 56px rgba(97, 118, 138, 0.16);
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  body {
+    @apply min-h-screen m-0 font-body text-text-main bg-page;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-main;
+  }
+
+  p {
+    @apply text-text-main;
+  }
+
+  strong, em, span, li, label {
+    @apply text-inherit;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+}
+
+body::before,
+body::after {
+  content: '';
+  @apply fixed inset-0 pointer-events-none -z-10 rounded-full blur-[80px] opacity-[0.28];
+}
+
+body::before {
+  width: 20rem;
+  height: 20rem;
+  top: 8rem;
+  right: 8vw;
+  background: var(--orb-a);
+}
+
+body::after {
+  width: 16rem;
+  height: 16rem;
+  left: 5vw;
+  bottom: 12rem;
+  background: var(--orb-b);
+}
+
+@layer components {
+  .page-shell {
+    @apply w-[min(1180px,calc(100vw-2rem))] mx-auto py-0 px-0 pt-12 pb-20;
+  }
+
+  .eyebrow {
+    @apply mb-3.5 text-accent-secondary text-xs tracking-widest uppercase;
+  }
+
+  .primary-action,
+  .secondary-action {
+    @apply inline-flex items-center justify-center rounded-full border border-transparent transition-all duration-150 ease-out;
+    padding: 0.9rem 1.15rem;
+  }
+
+  .primary-action {
+    @apply bg-brand-gradient text-accent-contrast font-black hover:scale-y-95;
+  }
+
+  .secondary-action {
+    @apply bg-button-secondary-bg border-button-secondary-border text-text-main font-bold hover:scale-y-95;
+  }
+
+  .site-header {
+    @apply fixed top-0 left-0 right-0 bg-header-bg backdrop-blur-md z-50 border-b border-border-soft;
+  }
+
+  .header-inner {
+    @apply flex items-center justify-between px-4 py-3 max-w-7xl mx-auto;
+  }
+
+  .brand-link {
+    @apply flex items-center gap-3 text-text-main no-underline hover:opacity-80 transition-opacity;
+  }
+
+  .brand-mark {
+    @apply flex items-center justify-center w-10 h-10 rounded-lg bg-accent-primary text-accent-contrast font-bold text-sm;
+  }
+
+  .brand-copy {
+    @apply flex flex-col text-sm leading-tight;
+  }
+
+  .brand-copy strong {
+    @apply font-bold;
+  }
+
+  .brand-copy span {
+    @apply text-xs text-accent-secondary opacity-75;
+  }
+
+  .site-nav {
+    @apply flex flex-col gap-4 md:flex-row md:gap-8;
+  }
+
+  .nav-link {
+    @apply text-text-main hover:text-accent-primary transition-colors relative;
+  }
+
+  .nav-link.is-active {
+    @apply text-accent-primary font-bold;
+  }
+
+  .nav-link.is-active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-accent-primary;
+  }
+
+  .skill-pill {
+    @apply inline-block px-3 py-1.5 rounded-full bg-tag-bg border border-tag-border text-text-main text-sm transition-all hover:border-accent-primary hover:text-accent-primary;
+  }
+
+  .section-card {
+    @apply bg-surface-card border border-border-soft rounded-xl p-8 shadow-card;
+  }
+
+  .hero-panel {
+    @apply bg-hero-panel rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-10 mb-10;
+  }
+
+  .content-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-max;
+  }
+
+  .timeline {
+    @apply space-y-8;
+  }
+
+  .timeline-entry {
+    @apply pb-8 border-b border-border-soft last:border-b-0 last:pb-0;
+  }
+
+  .stack-list {
+    @apply space-y-5;
+  }
+
+  .list-card {
+    @apply p-6 rounded-lg bg-surface-hover;
+  }
+
+  .control-switcher {
+    @apply flex items-center gap-4;
+  }
+
+  .control-buttons {
+    @apply flex gap-2;
+  }
+
+  .control-button {
+    @apply px-3 py-1.5 rounded border border-border-soft text-sm transition-all;
+  }
+
+  .control-button.is-active {
+    @apply bg-accent-primary text-accent-contrast border-accent-primary;
+  }
+
+  .menu-toggle {
+    @apply hidden md:hidden flex-col gap-1.5 w-6 h-6 bg-none border-none cursor-pointer p-0;
+  }
+
+  .menu-toggle span {
+    @apply w-full h-0.5 bg-text-main transition-all;
+  }
+
+  .header-controls {
+    @apply hidden md:flex flex-col md:flex-row gap-6 items-start md:items-center;
+  }
+
+  .header-controls.is-open {
+    @apply flex;
+  }
+
+  .site-footer {
+    @apply bg-surface-card border-t border-border-soft mt-16 py-8;
+  }
+
+  .profile-card {
+    @apply bg-hero-card;
+  }
+
+  .profile-image {
+    @apply w-full h-auto rounded-lg;
+  }
+
+  .fact-grid {
+    @apply grid gap-5 mt-8;
+  }
+
+  .fact-item {
+    @apply space-y-2;
+  }
+
+  .fact-label {
+    @apply text-xs text-text-muted opacity-75 uppercase tracking-widest font-medium;
+  }
+
+  .skill-groups {
+    @apply space-y-8;
+  }
+
+  .skill-group {
+    @apply space-y-4;
+  }
+
+  .skill-group h3 {
+    @apply text-base font-semibold text-text-main mb-2;
+  }
+
+  .skill-list {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .contact-list {
+    @apply space-y-4;
+  }
+
+  .contact-item {
+    @apply flex flex-col p-6 rounded-lg bg-surface-hover hover:bg-surface-strong transition-colors;
+  }
+
+  .contact-label {
+    @apply text-xs text-text-muted opacity-75;
+  }
+
+  .contact-value {
+    @apply font-semibold text-text-main;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    @apply px-2 pt-5;
+  }
+}
