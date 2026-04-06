@@ -1,19 +1,50 @@
-<div class="container formcalc">
-  
-        <form>
-            <label for="name">Number 1</label>
-            <input type="text" id="n1" name="name" required><br>
+<div class="page-shell">
+  <div class="max-w-2xl mx-auto">
+    <form class="section-card space-y-6">
+      <div class="space-y-2">
+        <label for="n1" class="block text-sm font-medium text-text-main">Number 1</label>
+        <input
+          type="text"
+          id="n1"
+          name="number1"
+          required
+          class="w-full px-4 py-2 border border-border-soft rounded-lg bg-surface-strong text-text-main focus:outline-none focus:border-accent-primary"
+        >
+      </div>
 
-            <label for="email">Number 2</label>
-            <input type="email" id="n2" name="email" required><br>
+      <div class="space-y-2">
+        <label for="n2" class="block text-sm font-medium text-text-main">Number 2</label>
+        <input
+          type="text"
+          id="n2"
+          name="number2"
+          required
+          class="w-full px-4 py-2 border border-border-soft rounded-lg bg-surface-strong text-text-main focus:outline-none focus:border-accent-primary"
+        >
+      </div>
 
-            <label for="message">Signal:</label>
-            <input id="message" id="sign" name="message" required><br>
+      <div class="space-y-2">
+        <label for="sign" class="block text-sm font-medium text-text-main">Signal</label>
+        <input
+          type="text"
+          id="sign"
+          name="signal"
+          required
+          class="w-full px-4 py-2 border border-border-soft rounded-lg bg-surface-strong text-text-main focus:outline-none focus:border-accent-primary"
+        >
+      </div>
 
-            <button type="submit">Submit</button>
+      <button
+        type="submit"
+        class="primary-action w-full"
+      >
+        Submit
+      </button>
 
-            <p>Result</p><p id="result"></p>
-            
-        </form>
-   
+      <div class="space-y-2 mt-6">
+        <p class="text-text-main font-medium">Result</p>
+        <p id="result" class="text-accent-primary font-semibold"></p>
+      </div>
+    </form>
+  </div>
 </div>

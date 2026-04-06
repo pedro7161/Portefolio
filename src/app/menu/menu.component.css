@@ -2,227 +2,27 @@
   display: block;
   position: sticky;
   top: 0;
-  z-index: 20;
-}
-
-.site-header {
-  backdrop-filter: blur(18px);
-  background: var(--header-bg);
-  border-bottom: 1px solid var(--border-soft);
-}
-
-.header-inner {
-  width: min(1180px, calc(100vw - 2rem));
-  margin: 0 auto;
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.brand-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.95rem;
-  min-width: 0;
-}
-
-.brand-mark {
-  width: 2.75rem;
-  height: 2.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1rem;
-  background: var(--brand-gradient);
-  color: var(--accent-contrast);
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
-.brand-copy {
-  min-width: 0;
-  display: grid;
-}
-
-.brand-copy strong {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-}
-
-.brand-copy span {
-  color: var(--text-faint);
-  font-size: 0.82rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.nav-link {
-  padding: 0.78rem 1rem;
-  border-radius: 999px;
-  color: var(--text-muted);
-  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
-}
-
-.nav-link:hover,
-.nav-link.is-active {
-  background: var(--surface-hover);
-  color: var(--text-main);
-  transform: translateY(-1px);
-}
-
-.menu-switchers {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.control-switcher {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.45rem 0.55rem 0.45rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-soft);
-  background: var(--surface-strong);
-}
-
-.control-label {
-  color: var(--text-faint);
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.control-buttons {
-  display: inline-flex;
-  gap: 0.35rem;
-}
-
-.control-button,
-.menu-toggle {
-  font: inherit;
-  color: inherit;
-  border: 0;
-}
-
-.control-button {
-  padding: 0.6rem 0.8rem;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--text-faint);
-  transition: background-color 160ms ease, color 160ms ease;
-}
-
-.control-button:hover,
-.control-button.is-active {
-  background: var(--surface-hover);
-  color: var(--text-main);
+  z-index: 50;
 }
 
 .menu-toggle {
-  display: none;
-  width: 3rem;
-  height: 3rem;
-  padding: 0;
-  border-radius: 1rem;
-  background: var(--surface-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.menu-toggle span {
-  display: block;
-  width: 1.2rem;
-  height: 2px;
-  margin: 0.24rem auto;
-  background: var(--text-main);
-}
-
-@media (max-width: 900px) {
-  .header-inner {
-    position: relative;
-  }
-
+@media (min-width: 768px) {
   .menu-toggle {
-    display: inline-block;
-  }
-
-  .header-controls {
-    position: absolute;
-    top: calc(100% + 0.65rem);
-    right: 0;
-    left: 0;
     display: none;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem;
-    border: 1px solid var(--border-strong);
-    border-radius: 1.4rem;
-    background: rgba(8, 18, 29, 0.96);
-    box-shadow: var(--card-shadow);
+  }
+}
+
+@media (max-width: 767px) {
+  .header-controls {
+    display: none;
   }
 
   .header-controls.is-open {
     display: flex;
   }
-
-  .site-nav,
-  .menu-switchers,
-  .control-buttons {
-    width: 100%;
-  }
-
-  .site-nav {
-    flex-direction: column;
-  }
-
-  .menu-switchers {
-    display: grid;
-  }
-
-  .nav-link {
-    width: 100%;
-  }
-
-  .control-switcher {
-    display: grid;
-    border-radius: 1.3rem;
-  }
-
-  .control-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .control-button {
-    width: 100%;
-  }
 }
-
-@media (max-width: 640px) {
-  .header-inner {
-    width: min(100vw - 1rem, 1180px);
-    padding: 0.85rem 0;
-  }
-
-  .brand-copy span {
-    white-space: normal;
-  }
-}
-  

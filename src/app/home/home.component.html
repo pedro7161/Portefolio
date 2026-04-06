@@ -1,18 +1,18 @@
 @if (content(); as page) {
   <section class="page-shell profile-page">
     <section class="hero-panel">
-      <article class="hero-copy">
+      <article class="flex flex-col justify-center space-y-6">
         <div class="eyebrow">{{ page.copy.hero.eyebrow }}</div>
-        <h1>{{ page.copy.hero.name }}</h1>
-        <p class="hero-role">{{ page.copy.hero.role }}</p>
+        <h1 class="text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.hero.name }}</h1>
+        <p class="text-2xl md:text-3xl font-display font-bold text-accent-primary leading-snug">{{ page.copy.hero.role }}</p>
 
-        <div class="hero-summary">
+        <div class="hero-summary space-y-5 max-w-lg pt-2">
           @for (paragraph of page.copy.hero.summary; track paragraph) {
-            <p>{{ paragraph }}</p>
+            <p class="text-text-muted leading-relaxed text-lg">{{ paragraph }}</p>
           }
         </div>
 
-        <div class="hero-actions">
+        <div class="hero-actions flex flex-wrap gap-4 pt-4">
           <a class="primary-action" routerLink="/projects">{{ page.copy.hero.primaryCta }}</a>
           <a
             class="secondary-action"
@@ -25,94 +25,79 @@
         </div>
       </article>
 
-      <aside class="section-card profile-card">
-        <div class="profile-card-head">
-          <img
-            class="profile-image"
-            [src]="page.profileImageUrl"
-            [alt]="page.copy.hero.profileAlt"
-          >
-
-          <div class="profile-card-copy">
-            <h2>{{ page.copy.hero.name }}</h2>
-            <p>{{ page.copy.hero.role }}</p>
-          </div>
+      <aside class="section-card profile-card flex flex-col justify-center">
+        <div class="profile-card-copy mb-8">
+          <h2 class="text-3xl font-display font-bold text-text-main mb-2">{{ page.copy.hero.name }}</h2>
+          <p class="text-lg text-text-muted">{{ page.copy.hero.role }}</p>
         </div>
 
-        <div class="fact-grid">
+        <div class="fact-grid space-y-4">
           <div class="fact-item">
             <span class="fact-label">{{ page.copy.hero.locationLabel }}</span>
-            <strong>{{ page.experience[0].location }}</strong>
+            <strong class="text-text-main text-base">{{ page.experience[0].location }}</strong>
           </div>
 
           <div class="fact-item">
             <span class="fact-label">{{ page.copy.hero.currentRoleLabel }}</span>
-            <strong>{{ page.experience[0].title }} · {{ page.experience[0].company }}</strong>
+            <strong class="text-text-main text-base">{{ page.experience[0].title }} · {{ page.experience[0].company }}</strong>
           </div>
 
           <div class="fact-item">
             <span class="fact-label">{{ page.copy.hero.educationLabel }}</span>
-            <strong>{{ page.education[0].degree }}</strong>
+            <strong class="text-text-main text-base">{{ page.education[0].degree }}</strong>
           </div>
 
           <div class="fact-item">
             <span class="fact-label">{{ page.copy.hero.contactLabel }}</span>
-            <a [href]="page.contacts[0].href">{{ page.contacts[0].value }}</a>
+            <a class="text-accent-primary hover:underline text-base" [href]="page.contacts[0].href">{{ page.contacts[0].value }}</a>
           </div>
         </div>
       </aside>
     </section>
 
     <section class="content-grid">
-      <article class="section-card section-wide">
-        <header class="section-header">
-          <div>
+      <article class="section-card col-span-1 md:col-span-2">
+        <header class="section-header mb-10 pb-8 border-b border-border-soft">
+          <div class="mb-4">
             <div class="eyebrow">{{ page.copy.sections.experience }}</div>
-            <h2>{{ page.copy.sections.experience }}</h2>
+            <h2 class="text-4xl font-display font-bold text-text-main mt-3">{{ page.copy.sections.experience }}</h2>
           </div>
-          <p>{{ page.copy.sections.experienceLead }}</p>
+          <p class="text-text-muted text-lg leading-relaxed max-w-2xl">{{ page.copy.sections.experienceLead }}</p>
         </header>
 
         <div class="timeline">
           @for (entry of page.experience; track entry.company + entry.period) {
             <article class="timeline-entry">
-              <div class="entry-header">
+              <div class="entry-header flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
                 <div>
-                  <h3>{{ entry.title }}</h3>
-                  <p>{{ entry.company }} · {{ entry.employmentType }}</p>
+                  <h3 class="text-xl font-bold text-text-main">{{ entry.title }}</h3>
+                  <p class="text-text-muted">{{ entry.company }} · {{ entry.employmentType }}</p>
                 </div>
-                <span class="entry-period">{{ entry.period }}</span>
+                <span class="entry-period text-sm text-text-muted font-medium">{{ entry.period }}</span>
               </div>
 
-              <div class="entry-location">{{ entry.location }}</div>
-              <p class="entry-summary">{{ entry.summary }}</p>
-
-              <ul class="entry-highlights">
-                @for (highlight of entry.highlights; track highlight) {
-                  <li>{{ highlight }}</li>
-                }
-              </ul>
+              <div class="entry-location text-sm text-text-faint">{{ entry.location }}</div>
             </article>
           }
         </div>
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact">
-          <div>
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.education }}</div>
-            <h2>{{ page.copy.sections.education }}</h2>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.education }}</h2>
           </div>
-          <p>{{ page.copy.sections.educationLead }}</p>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.educationLead }}</p>
         </header>
 
         <div class="stack-list">
           @for (entry of page.education; track entry.degree + entry.period) {
             <article class="list-card">
-              <h3>{{ entry.degree }}</h3>
-              <div class="list-meta">{{ entry.school }} · {{ entry.period }}</div>
+              <h3 class="font-bold text-text-main mb-1">{{ entry.degree }}</h3>
+              <div class="list-meta text-xs text-text-muted mb-3">{{ entry.school }} · {{ entry.period }}</div>
               @for (detail of entry.details; track detail) {
-                <p>{{ detail }}</p>
+                <p class="text-sm text-text-faint">{{ detail }}</p>
               }
             </article>
           }
@@ -120,25 +105,25 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact">
-          <div>
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.certifications }}</div>
-            <h2>{{ page.copy.sections.certifications }}</h2>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.certifications }}</h2>
           </div>
-          <p>{{ page.copy.sections.certificationsLead }}</p>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.certificationsLead }}</p>
         </header>
 
         <div class="stack-list">
           @for (entry of page.certifications; track entry.name) {
             <article class="list-card">
-              <h3>{{ entry.name }}</h3>
-              <div class="list-meta">{{ entry.issuer }}</div>
-              <p>{{ entry.issued }}</p>
+              <h3 class="font-bold text-text-main mb-1">{{ entry.name }}</h3>
+              <div class="list-meta text-xs text-text-muted mb-2">{{ entry.issuer }}</div>
+              <p class="text-sm text-text-faint mb-1">{{ entry.issued }}</p>
               @if (entry.expires) {
-                <p>{{ entry.expires }}</p>
+                <p class="text-sm text-text-faint mb-1">{{ entry.expires }}</p>
               }
               @if (entry.details) {
-                <p>{{ entry.details }}</p>
+                <p class="text-sm text-text-faint">{{ entry.details }}</p>
               }
             </article>
           }
@@ -146,18 +131,18 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact">
-          <div>
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.skills }}</div>
-            <h2>{{ page.copy.sections.skills }}</h2>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.skills }}</h2>
           </div>
-          <p>{{ page.copy.sections.skillsLead }}</p>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.skillsLead }}</p>
         </header>
 
         <div class="skill-groups">
           @for (group of page.skillGroups; track group.title) {
             <article class="skill-group">
-              <h3>{{ group.title }}</h3>
+              <h3 class="font-semibold text-text-main">{{ group.title }}</h3>
               <div class="skill-list">
                 @for (item of group.items; track item) {
                   <span class="skill-pill">{{ item }}</span>
@@ -169,12 +154,12 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact">
-          <div>
+        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
+          <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.quickContact }}</div>
-            <h2>{{ page.copy.sections.quickContact }}</h2>
+            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.quickContact }}</h2>
           </div>
-          <p>{{ page.copy.sections.quickContactLead }}</p>
+          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.quickContactLead }}</p>
         </header>
 
         <div class="contact-list">
@@ -191,7 +176,7 @@
           }
         </div>
 
-        <div class="contact-footer">
+        <div class="contact-footer flex flex-wrap gap-4 mt-6">
           <a class="secondary-action" [href]="page.profileLinks.github" target="_blank" rel="noreferrer">
             {{ page.copy.projectPage.profileLabel }}
           </a>

@@ -41,3 +41,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Generated docs
+DOCUMENTATION_SUMMARY.md
+docs/CONTENT_MANAGEMENT.md
+docs/DOCUMENTATION_REVIEW.md
+docs/INDEX.md
+docs/STYLING_AND_THEMING.md

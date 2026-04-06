@@ -42,9 +42,9 @@
           </a>
         </nav>
 
-        <div class="menu-switchers">
+        <div class="flex flex-col gap-4 md:flex-row md:gap-8 md:items-center">
           <div class="control-switcher" [attr.aria-label]="page.copy.nav.language">
-            <span class="control-label">{{ page.copy.nav.language }}</span>
+            <span class="control-label text-sm font-medium">{{ page.copy.nav.language }}</span>
             <div class="control-buttons">
               <button
                 class="control-button"
@@ -66,7 +66,7 @@
           </div>
 
           <div class="control-switcher" [attr.aria-label]="page.copy.nav.theme">
-            <span class="control-label">{{ page.copy.nav.theme }}</span>
+            <span class="control-label text-sm font-medium">{{ page.copy.nav.theme }}</span>
             <div class="control-buttons">
               <button
                 class="control-button"

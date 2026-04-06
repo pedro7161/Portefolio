@@ -4,6 +4,10 @@ export type AppLanguage = 'en' | 'pt-PT';
 
 const LANGUAGE_STORAGE_KEY = 'portfolio-language';
 
+export function isAppLanguage(value: unknown): value is AppLanguage {
+  return value === 'en' || value === 'pt-PT';
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,19 +21,23 @@ export class LanguageService {
     this.currentLanguage.set(language);
 
     if (typeof localStorage !== 'undefined') {
-      localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+      } catch {
+        // Quota exceeded or storage unavailable — in-memory state is still updated
+      }
     }
   }
 
   private getInitialLanguage(): AppLanguage {
     if (typeof localStorage !== 'undefined') {
       const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-      if (savedLanguage === 'en' || savedLanguage === 'pt-PT') {
+      if (isAppLanguage(savedLanguage)) {
         return savedLanguage;
       }
     }
 
-    if (typeof navigator !== 'undefined' && navigator.language.toLowerCase().startsWith('pt')) {
+    if (typeof navigator !== 'undefined' && navigator?.language?.toLowerCase?.()?.startsWith('pt')) {
       return 'pt-PT';
     }
 

@@ -11,7 +11,6 @@ interface TimelineEntrySource {
   employmentType: LocalizedText;
   period: string;
   location: LocalizedText;
-  summary: LocalizedText;
   highlights: LocalizedText[];
 }
 
@@ -106,7 +105,6 @@ export interface TimelineEntry {
   employmentType: string;
   period: string;
   location: string;
-  summary: string;
   highlights: string[];
 }
 
@@ -185,10 +183,6 @@ const EXPERIENCE: TimelineEntrySource[] = [
       en: 'Lisbon, Portugal',
       pt: 'Lisboa, Portugal',
     },
-    summary: {
-      en: 'Working in a frontend role with a delivery focus on modern web interfaces and maintainable product work.',
-      pt: 'A trabalhar numa função de frontend com foco na entrega de interfaces web modernas e trabalho de produto sustentável.',
-    },
     highlights: [
       {
         en: 'Current professional focus on Angular and frontend delivery.',
@@ -210,10 +204,6 @@ const EXPERIENCE: TimelineEntrySource[] = [
     location: {
       en: 'Lisbon Region, Portugal · Hybrid',
       pt: 'Lisboa e Região, Portugal · Híbrido',
-    },
-    summary: {
-      en: 'Completed a 3-month Java Academy focused on object-oriented programming and DevOps tooling including AWS, Kubernetes, Docker, and YAML.',
-      pt: 'Concluí uma Java Academy de 3 meses focada em programação orientada a objetos e ferramentas DevOps como AWS, Kubernetes, Docker e YAML.',
     },
     highlights: [
       {
@@ -237,10 +227,6 @@ const EXPERIENCE: TimelineEntrySource[] = [
       en: 'Lisbon, Portugal · Remote',
       pt: 'Lisboa, Portugal · Remoto',
     },
-    summary: {
-      en: 'Transitioned the company website from WordPress to Angular to deepen practical experience with modern frontend architecture.',
-      pt: 'Fiz a transição do website da empresa de WordPress para Angular para aprofundar experiência prática com arquitetura frontend moderna.',
-    },
     highlights: [
       {
         en: 'Worked directly with Angular in a real company migration scenario.',
@@ -262,10 +248,6 @@ const EXPERIENCE: TimelineEntrySource[] = [
     location: {
       en: 'Innovation Center FCUL · Remote',
       pt: 'Centro de Inovação FCUL · Remoto',
-    },
-    summary: {
-      en: 'Contributed to web products, media assets, and supporting technical work across frontend, branding, and 3D content.',
-      pt: 'Contribuí para produtos web, assets multimédia e trabalho técnico de apoio entre frontend, branding e conteúdo 3D.',
     },
     highlights: [
       {
@@ -292,10 +274,6 @@ const EXPERIENCE: TimelineEntrySource[] = [
     location: {
       en: 'Lisbon, Portugal · On-site',
       pt: 'Lisboa, Portugal · Presencial',
-    },
-    summary: {
-      en: 'Supported sales and communication materials with design, animation, and app work.',
-      pt: 'Apoiei materiais de vendas e comunicação com trabalho de design, animação e aplicações.',
     },
     highlights: [
       {
@@ -524,7 +502,7 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       moreDescription: 'My GitHub profile is the best place to track public repos, experiments, and what I am actively building next.',
       moreCta: 'Open GitHub',
     },
-    footer: 'Built with Angular and structured to stay easy to update as the CV evolves.',
+    footer: '',
   },
   'pt-PT': {
     nav: {
@@ -593,7 +571,6 @@ export function getPortfolioContent(language: AppLanguage): PortfolioContent {
       employmentType: resolveText(language, entry.employmentType),
       period: entry.period,
       location: resolveText(language, entry.location),
-      summary: resolveText(language, entry.summary),
       highlights: entry.highlights.map(highlight => resolveText(language, highlight)),
     })),
     education: EDUCATION.map(entry => ({
