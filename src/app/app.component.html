@@ -5,9 +5,30 @@
     <router-outlet></router-outlet>
   </main>
 
-  <footer class="site-footer">
-    <div class="page-shell footer-shell">
-      {{ content().copy.footer }}
-    </div>
-  </footer>
+  @if (content(); as page) {
+    <footer class="site-footer">
+      <div class="page-shell footer-shell">
+        <section class="footer-card">
+          <div class="footer-brand">
+            <span class="footer-kicker">{{ page.copy.hero.eyebrow }}</span>
+            <h2 class="footer-title">{{ page.copy.hero.name }}</h2>
+            <p class="footer-copy">{{ page.copy.footer }}</p>
+          </div>
+
+          <nav class="footer-column" aria-label="Footer navigation">
+            <span class="footer-heading">{{ page.copy.nav.profile }} / {{ page.copy.nav.projects }}</span>
+            <a class="footer-link" routerLink="/">{{ page.copy.nav.profile }}</a>
+            <a class="footer-link" routerLink="/projects">{{ page.copy.nav.projects }}</a>
+          </nav>
+
+          <div class="footer-column">
+            <span class="footer-heading">{{ page.copy.sections.quickContact }}</span>
+            <a class="footer-link" [href]="page.contacts[0].href">{{ page.contacts[0].value }}</a>
+            <a class="footer-link" [href]="page.profileLinks.linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="footer-link" [href]="page.profileLinks.github" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </section>
+      </div>
+    </footer>
+  }
 </div>

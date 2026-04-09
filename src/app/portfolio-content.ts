@@ -502,7 +502,7 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       moreDescription: 'My GitHub profile is the best place to track public repos, experiments, and what I am actively building next.',
       moreCta: 'Open GitHub',
     },
-    footer: '',
+    footer: 'Built with Angular and kept intentionally easy to update as experience, projects, and certifications grow.',
   },
   'pt-PT': {
     nav: {

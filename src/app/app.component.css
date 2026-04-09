@@ -19,6 +19,86 @@
 }
 
 .footer-shell {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.footer-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr) minmax(0, 0.8fr);
+  gap: 2rem;
+  padding: 2rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 1rem;
+  background: var(--surface-card);
+  box-shadow: var(--card-shadow);
+}
+
+.footer-brand,
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
+  gap: 0.75rem;
+}
+
+.footer-column {
+  gap: 0.65rem;
+}
+
+.footer-kicker,
+.footer-heading {
   color: var(--text-faint);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.footer-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.5vw, 2.4rem);
+  line-height: 1;
+}
+
+.footer-copy {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 34rem;
+}
+
+.footer-link {
+  color: var(--text-main);
+  font-weight: 600;
+  width: fit-content;
+  transition: color 150ms ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+@media (max-width: 720px) {
+  .app-main {
+    padding-top: 4rem;
+  }
+
+  .site-footer {
+    padding-bottom: 1.75rem;
+  }
+
+  .footer-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .footer-copy {
+    max-width: none;
+  }
 }

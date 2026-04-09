@@ -3,12 +3,12 @@
     <section class="hero-panel">
       <article class="flex flex-col justify-center space-y-6">
         <div class="eyebrow">{{ page.copy.hero.eyebrow }}</div>
-        <h1 class="text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.hero.name }}</h1>
-        <p class="text-2xl md:text-3xl font-display font-bold text-accent-primary leading-snug">{{ page.copy.hero.role }}</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.hero.name }}</h1>
+        <p class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-accent-primary leading-snug">{{ page.copy.hero.role }}</p>
 
         <div class="hero-summary space-y-5 max-w-lg pt-2">
           @for (paragraph of page.copy.hero.summary; track paragraph) {
-            <p class="text-text-muted leading-relaxed text-lg">{{ paragraph }}</p>
+            <p class="text-text-muted leading-relaxed text-base sm:text-lg">{{ paragraph }}</p>
           }
         </div>
 
@@ -26,8 +26,8 @@
       </article>
 
       <aside class="section-card profile-card flex flex-col justify-center">
-        <div class="profile-card-copy mb-8">
-          <h2 class="text-3xl font-display font-bold text-text-main mb-2">{{ page.copy.hero.name }}</h2>
+        <div class="profile-card-copy mb-6 sm:mb-8">
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-text-main mb-2">{{ page.copy.hero.name }}</h2>
           <p class="text-lg text-text-muted">{{ page.copy.hero.role }}</p>
         </div>
 
@@ -60,7 +60,7 @@
         <header class="section-header mb-10 pb-8 border-b border-border-soft">
           <div class="mb-4">
             <div class="eyebrow">{{ page.copy.sections.experience }}</div>
-            <h2 class="text-4xl font-display font-bold text-text-main mt-3">{{ page.copy.sections.experience }}</h2>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-text-main mt-3">{{ page.copy.sections.experience }}</h2>
           </div>
           <p class="text-text-muted text-lg leading-relaxed max-w-2xl">{{ page.copy.sections.experienceLead }}</p>
         </header>
@@ -86,7 +86,7 @@
         <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
           <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.education }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.education }}</h2>
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.education }}</h2>
           </div>
           <p class="text-text-muted leading-relaxed">{{ page.copy.sections.educationLead }}</p>
         </header>
@@ -108,7 +108,7 @@
         <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
           <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.certifications }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.certifications }}</h2>
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.certifications }}</h2>
           </div>
           <p class="text-text-muted leading-relaxed">{{ page.copy.sections.certificationsLead }}</p>
         </header>
@@ -134,7 +134,7 @@
         <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
           <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.skills }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.skills }}</h2>
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.skills }}</h2>
           </div>
           <p class="text-text-muted leading-relaxed">{{ page.copy.sections.skillsLead }}</p>
         </header>
@@ -157,7 +157,7 @@
         <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
           <div class="mb-3">
             <div class="eyebrow">{{ page.copy.sections.quickContact }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.quickContact }}</h2>
+            <h2 class="text-2xl sm:text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.quickContact }}</h2>
           </div>
           <p class="text-text-muted leading-relaxed">{{ page.copy.sections.quickContactLead }}</p>
         </header>
