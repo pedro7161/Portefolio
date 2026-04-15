@@ -26,12 +26,25 @@
             </div>
 
             <div class="project-actions flex flex-wrap gap-3 pt-2">
-              <a class="primary-action text-sm" [href]="project.liveUrl" target="_blank" rel="noreferrer">
-                {{ page.copy.projectPage.liveLabel }}
-              </a>
-              <a class="secondary-action text-sm" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">
-                {{ page.copy.projectPage.repositoryLabel }}
-              </a>
+              @if (project.websiteUrl || project.gameUrl) {
+                @if (project.websiteUrl) {
+                  <a class="primary-action text-sm" [href]="project.websiteUrl" target="_blank" rel="noreferrer">
+                    {{ page.copy.projectPage.websiteLabel }}
+                  </a>
+                }
+                @if (project.gameUrl) {
+                  <a class="secondary-action text-sm" [href]="project.gameUrl" target="_blank" rel="noreferrer">
+                    {{ page.copy.projectPage.gameLabel }}
+                  </a>
+                }
+              } @else {
+                <a class="primary-action text-sm" [href]="project.liveUrl" target="_blank" rel="noreferrer">
+                  {{ page.copy.projectPage.liveLabel }}
+                </a>
+                <a class="secondary-action text-sm" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">
+                  {{ page.copy.projectPage.repositoryLabel }}
+                </a>
+              }
             </div>
           </div>
         </article>

@@ -41,6 +41,8 @@ interface ProjectEntrySource {
   tags: string[];
   liveUrl: string;
   repositoryUrl: string;
+  websiteUrl?: string;
+  gameUrl?: string;
 }
 
 interface ContactEntrySource {
@@ -90,6 +92,8 @@ interface PortfolioCopy {
     projectMeta: string;
     liveLabel: string;
     repositoryLabel: string;
+    websiteLabel: string;
+    gameLabel: string;
     profileLabel: string;
     githubEyebrow: string;
     moreTitle: string;
@@ -135,6 +139,8 @@ export interface ProjectEntry {
   tags: string[];
   liveUrl: string;
   repositoryUrl: string;
+  websiteUrl?: string;
+  gameUrl?: string;
 }
 
 export interface ContactEntry {
@@ -163,6 +169,8 @@ const PORTFOLIO_LINKS = {
   linkedin: 'https://www.linkedin.com/in/pedro-pinto-8141a8173/',
   gameLive: 'https://pedro7161.github.io/Space_idle_Clicker/',
   gameRepo: 'https://github.com/pedro7161/Space_idle_Clicker',
+  portalSiegeWebsite: 'https://pedro7161.github.io/portal-siege-website/',
+  portalSiegeGame: 'https://pedro7161.github.io/Portal-Siege-pages/',
   email: 'mailto:pedro.ramos9@hotmail.com',
   phone: 'tel:+351968495576',
 };
@@ -414,6 +422,22 @@ const PROJECTS: ProjectEntrySource[] = [
     liveUrl: PORTFOLIO_LINKS.gameLive,
     repositoryUrl: PORTFOLIO_LINKS.gameRepo,
   },
+  {
+    title: 'Portal Siege',
+    description: {
+      en: 'A wave-based autobattler where players merge units in real time, position defenses, and adapt builds to survive escalating enemy pressure.',
+      pt: 'Um autobattler por vagas onde os jogadores fundem unidades em tempo real, posicionam defesas e adaptam builds para sobreviver a pressão crescente dos inimigos.',
+    },
+    impact: {
+      en: 'Highlights end-to-end delivery across game systems, balancing, UI flow, and a dedicated public website plus playable web build.',
+      pt: 'Destaca entrega end-to-end entre sistemas de jogo, balancing, fluxo de UI e uma website pública dedicada com build jogável na web.',
+    },
+    tags: ['Angular', 'TypeScript', 'PixiJS', 'Game Design', 'Web Deployment'],
+    liveUrl: PORTFOLIO_LINKS.portalSiegeWebsite,
+    repositoryUrl: PORTFOLIO_LINKS.portalSiegeGame,
+    websiteUrl: PORTFOLIO_LINKS.portalSiegeWebsite,
+    gameUrl: PORTFOLIO_LINKS.portalSiegeGame,
+  },
 ];
 
 const CONTACTS: ContactEntrySource[] = [
@@ -496,6 +520,8 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       projectMeta: 'Angular · Public project',
       liveLabel: 'Open Live Project',
       repositoryLabel: 'View Repository',
+      websiteLabel: 'Open Website',
+      gameLabel: 'Play Game',
       profileLabel: 'View GitHub Profile',
       githubEyebrow: 'GitHub',
       moreTitle: 'More code on GitHub',
@@ -548,6 +574,8 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       projectMeta: 'Angular · Projeto público',
       liveLabel: 'Abrir Projeto Live',
       repositoryLabel: 'Ver Repositório',
+      websiteLabel: 'Abrir Website',
+      gameLabel: 'Jogar',
       profileLabel: 'Ver Perfil GitHub',
       githubEyebrow: 'GitHub',
       moreTitle: 'Mais código no GitHub',
@@ -597,6 +625,8 @@ export function getPortfolioContent(language: AppLanguage): PortfolioContent {
       tags: project.tags,
       liveUrl: project.liveUrl,
       repositoryUrl: project.repositoryUrl,
+      websiteUrl: project.websiteUrl,
+      gameUrl: project.gameUrl,
     })),
     contacts: CONTACTS.map(contact => ({
       label: resolveText(language, contact.label),
