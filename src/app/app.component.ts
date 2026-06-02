@@ -1,8 +1,7 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { LanguageService } from './language.service';
-import { getPortfolioContent } from './portfolio-content';
 import { ThemeService } from './theme.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class AppComponent {
   private readonly languageService = inject(LanguageService);
   private readonly themeService = inject(ThemeService);
 
-  readonly content = computed(() => getPortfolioContent(this.languageService.language()));
+  readonly content = this.languageService.content;
   readonly currentTheme = this.themeService.theme;
   readonly title = 'Pedro Pinto Portfolio';
 }

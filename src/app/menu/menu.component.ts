@@ -1,7 +1,6 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AppLanguage, LanguageService } from '../language.service';
-import { getPortfolioContent } from '../portfolio-content';
 import { AppTheme, ThemeService } from '../theme.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class MenuComponent {
   private readonly languageService = inject(LanguageService);
   private readonly themeService = inject(ThemeService);
 
-  readonly content = computed(() => getPortfolioContent(this.languageService.language()));
+  readonly content = this.languageService.content;
   readonly currentLanguage = this.languageService.language;
   readonly currentTheme = this.themeService.theme;
 

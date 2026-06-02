@@ -57,13 +57,12 @@
 
     <section class="content-grid">
       <article class="section-card col-span-1 md:col-span-2">
-        <header class="section-header mb-10 pb-8 border-b border-border-soft">
-          <div class="mb-4">
-            <div class="eyebrow">{{ page.copy.sections.experience }}</div>
-            <h2 class="text-4xl font-display font-bold text-text-main mt-3">{{ page.copy.sections.experience }}</h2>
-          </div>
-          <p class="text-text-muted text-lg leading-relaxed max-w-2xl">{{ page.copy.sections.experienceLead }}</p>
-        </header>
+        <app-section-header
+          [label]="page.copy.sections.experience"
+          [title]="page.copy.sections.experience"
+          [lead]="page.copy.sections.experienceLead"
+          [compact]="false"
+        />
 
         <div class="timeline">
           @for (entry of page.experience; track entry.company + entry.period) {
@@ -83,13 +82,11 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
-          <div class="mb-3">
-            <div class="eyebrow">{{ page.copy.sections.education }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.education }}</h2>
-          </div>
-          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.educationLead }}</p>
-        </header>
+        <app-section-header
+          [label]="page.copy.sections.education"
+          [title]="page.copy.sections.education"
+          [lead]="page.copy.sections.educationLead"
+        />
 
         <div class="stack-list">
           @for (entry of page.education; track entry.degree + entry.period) {
@@ -105,13 +102,11 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
-          <div class="mb-3">
-            <div class="eyebrow">{{ page.copy.sections.certifications }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.certifications }}</h2>
-          </div>
-          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.certificationsLead }}</p>
-        </header>
+        <app-section-header
+          [label]="page.copy.sections.certifications"
+          [title]="page.copy.sections.certifications"
+          [lead]="page.copy.sections.certificationsLead"
+        />
 
         <div class="stack-list">
           @for (entry of page.certifications; track entry.name) {
@@ -131,13 +126,11 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
-          <div class="mb-3">
-            <div class="eyebrow">{{ page.copy.sections.skills }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.skills }}</h2>
-          </div>
-          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.skillsLead }}</p>
-        </header>
+        <app-section-header
+          [label]="page.copy.sections.skills"
+          [title]="page.copy.sections.skills"
+          [lead]="page.copy.sections.skillsLead"
+        />
 
         <div class="skill-groups">
           @for (group of page.skillGroups; track group.title) {
@@ -154,13 +147,11 @@
       </article>
 
       <article class="section-card">
-        <header class="section-header section-header-compact mb-8 pb-6 border-b border-border-soft">
-          <div class="mb-3">
-            <div class="eyebrow">{{ page.copy.sections.quickContact }}</div>
-            <h2 class="text-3xl font-display font-bold text-text-main mt-2">{{ page.copy.sections.quickContact }}</h2>
-          </div>
-          <p class="text-text-muted leading-relaxed">{{ page.copy.sections.quickContactLead }}</p>
-        </header>
+        <app-section-header
+          [label]="page.copy.sections.quickContact"
+          [title]="page.copy.sections.quickContact"
+          [lead]="page.copy.sections.quickContactLead"
+        />
 
         <div class="contact-list">
           @for (contact of page.contacts; track contact.label) {
