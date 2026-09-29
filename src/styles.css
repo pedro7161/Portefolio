@@ -96,7 +96,7 @@ html {
   }
 
   body {
-    @apply min-h-screen m-0 font-body text-text-main bg-page;
+    @apply min-h-screen m-0 font-body text-text-main bg-page overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -177,7 +177,7 @@ body::after {
   }
 
   .header-inner {
-    @apply flex items-center justify-between px-4 py-3 max-w-7xl mx-auto;
+    @apply relative flex items-center justify-between gap-4 px-4 py-3 max-w-7xl mx-auto;
   }
 
   .brand-link {
@@ -219,18 +219,19 @@ body::after {
 
   .skill-pill {
     @apply inline-block px-3 py-1.5 rounded-full bg-tag-bg border border-tag-border text-text-main text-sm transition-all hover:border-accent-primary hover:text-accent-primary;
+    overflow-wrap: anywhere;
   }
 
   .section-card {
-    @apply bg-surface-card border border-border-soft rounded-xl p-8 shadow-card;
+    @apply bg-surface-card border border-border-soft rounded-xl p-6 sm:p-8 shadow-card;
   }
 
   .hero-panel {
-    @apply bg-hero-panel rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-10 mb-10;
+    @apply bg-hero-panel rounded-xl p-6 sm:p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 mb-8 sm:mb-10;
   }
 
   .content-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-max;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 auto-rows-max;
   }
 
   .timeline {
@@ -246,15 +247,15 @@ body::after {
   }
 
   .list-card {
-    @apply p-6 rounded-lg bg-surface-hover;
+    @apply p-5 sm:p-6 rounded-lg bg-surface-hover;
   }
 
   .control-switcher {
-    @apply flex items-center gap-4;
+    @apply flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4;
   }
 
   .control-buttons {
-    @apply flex gap-2;
+    @apply flex flex-wrap gap-2;
   }
 
   .control-button {
@@ -335,11 +336,45 @@ body::after {
 
   .contact-value {
     @apply font-semibold text-text-main;
+    overflow-wrap: anywhere;
   }
 }
 
 @media (max-width: 720px) {
   .page-shell {
-    @apply px-2 pt-5;
+    width: min(1180px, calc(100vw - 1rem));
+    @apply px-0 pt-4 pb-14;
+  }
+
+  .hero-actions,
+  .project-actions,
+  .contact-footer {
+    @apply flex-col items-stretch;
+  }
+
+  .hero-actions .primary-action,
+  .hero-actions .secondary-action,
+  .project-actions .primary-action,
+  .project-actions .secondary-action,
+  .contact-footer .secondary-action {
+    width: 100%;
+  }
+
+  .fact-grid {
+    @apply mt-6 gap-4;
+  }
+
+  .timeline {
+    @apply space-y-6;
+  }
+
+  .timeline-entry {
+    @apply pb-6;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-copy span {
+    display: none;
   }
 }

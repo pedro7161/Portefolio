@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
-import { getPortfolioContent } from '../portfolio-content';
+import { Component, inject } from '@angular/core';
 import { LanguageService } from '../language.service';
 
 @Component({
@@ -13,5 +12,5 @@ import { LanguageService } from '../language.service';
 export class ProjectsComponent {
   private readonly languageService = inject(LanguageService);
 
-  readonly content = computed(() => getPortfolioContent(this.languageService.language()));
+  readonly content = this.languageService.content;
 }

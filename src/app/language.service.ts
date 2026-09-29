@@ -1,4 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
+import { getPortfolioContent } from './portfolio-content';
 
 export type AppLanguage = 'en' | 'pt-PT';
 
@@ -16,6 +17,7 @@ export class LanguageService {
 
   readonly language = this.currentLanguage.asReadonly();
   readonly isPortuguese = computed(() => this.currentLanguage() === 'pt-PT');
+  readonly content = computed(() => getPortfolioContent(this.currentLanguage()));
 
   setLanguage(language: AppLanguage): void {
     this.currentLanguage.set(language);
