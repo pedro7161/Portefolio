@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { LanguageService } from './language.service';
 import { ThemeService } from './theme.service';
@@ -7,7 +7,7 @@ import { ThemeService } from './theme.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenuComponent],
+  imports: [RouterOutlet, RouterLink, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

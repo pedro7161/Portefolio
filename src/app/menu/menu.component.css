@@ -2,13 +2,18 @@
   display: block;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
 }
 
 .menu-toggle {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.site-header {
+  z-index: 1000;
+  padding-top: env(safe-area-inset-top);
 }
 
 @media (min-width: 768px) {
@@ -24,5 +29,41 @@
 
   .header-controls.is-open {
     display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 1001;
+    width: 100%;
+    padding: 1rem;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-soft);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    max-height: calc(100vh - 4.5rem - env(safe-area-inset-top));
+    overflow-y: auto;
+  }
+
+  .site-nav {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.15rem 0;
+  }
+
+  .header-controls .flex {
+    width: 100%;
+  }
+
+  .control-switcher {
+    width: 100%;
+  }
+
+  .control-buttons {
+    width: 100%;
   }
 }
