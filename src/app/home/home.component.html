@@ -3,12 +3,12 @@
     <section class="hero-panel">
       <article class="flex flex-col justify-center space-y-6">
         <div class="eyebrow">{{ page.copy.hero.eyebrow }}</div>
-        <h1 class="text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.hero.name }}</h1>
-        <p class="text-2xl md:text-3xl font-display font-bold text-accent-primary leading-snug">{{ page.copy.hero.role }}</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-black text-text-main leading-tight">{{ page.copy.hero.name }}</h1>
+        <p class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-accent-primary leading-snug">{{ page.copy.hero.role }}</p>
 
         <div class="hero-summary space-y-5 max-w-lg pt-2">
           @for (paragraph of page.copy.hero.summary; track paragraph) {
-            <p class="text-text-muted leading-relaxed text-lg">{{ paragraph }}</p>
+            <p class="text-text-muted leading-relaxed text-base sm:text-lg">{{ paragraph }}</p>
           }
         </div>
 
@@ -26,7 +26,7 @@
       </article>
 
       <aside class="section-card profile-card flex flex-col justify-center">
-        <div class="profile-card-copy mb-8">
+        <div class="profile-card-copy mb-6 sm:mb-8">
           <h2 class="text-3xl font-display font-bold text-text-main mb-2">{{ page.copy.hero.name }}</h2>
           <p class="text-lg text-text-muted">{{ page.copy.hero.role }}</p>
         </div>
