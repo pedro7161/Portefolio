@@ -39,7 +39,7 @@ interface ProjectEntrySource {
   description: LocalizedText;
   impact: LocalizedText;
   tags: string[];
-  liveUrl: string;
+  liveUrl?: string;
   repositoryUrl: string;
   websiteUrl?: string;
   gameUrl?: string;
@@ -137,7 +137,7 @@ export interface ProjectEntry {
   description: string;
   impact: string;
   tags: string[];
-  liveUrl: string;
+  liveUrl?: string;
   repositoryUrl: string;
   websiteUrl?: string;
   gameUrl?: string;
@@ -438,6 +438,32 @@ const PROJECTS: ProjectEntrySource[] = [
     websiteUrl: PORTFOLIO_LINKS.portalSiegeWebsite,
     gameUrl: PORTFOLIO_LINKS.portalSiegeGame,
   },
+  {
+    title: 'Distributed Systems Patterns (Quarkus + Kafka)',
+    description: {
+      en: 'An eight-part series of small Java/Quarkus services, each isolating one reliability pattern: transactional outbox with Debezium CDC, inbox idempotency, choreographed sagas with compensation, retry and dead-letter queues, circuit breaker, CQRS, event sourcing, and a distributed e-commerce capstone that combines them.',
+      pt: 'Uma série de oito pequenos serviços Java/Quarkus, cada um a isolar um padrão de fiabilidade: transactional outbox com Debezium CDC, idempotência com inbox, sagas coreografadas com compensação, retry e dead-letter queues, circuit breaker, CQRS, event sourcing e um projeto final de e-commerce distribuído que os combina.',
+    },
+    impact: {
+      en: 'Shows backend depth beyond the frontend work: event-driven design, failure handling, and reproducible local setups with Docker, PostgreSQL and Kafka.',
+      pt: 'Mostra profundidade de backend para além do frontend: desenho orientado a eventos, tratamento de falhas e ambientes locais reproduzíveis com Docker, PostgreSQL e Kafka.',
+    },
+    tags: ['Java', 'Quarkus', 'Kafka', 'Debezium', 'PostgreSQL', 'Docker'],
+    repositoryUrl: 'https://github.com/pedro7161/08-distributed-ecommerce',
+  },
+  {
+    title: 'Growra',
+    description: {
+      en: 'A React Native (Expo) habit tracker with game mechanics: real tasks earn coins and XP, which summon pets that level, fuse, evolve and go on expeditions, while streaks reward consistency.',
+      pt: 'Uma app de hábitos em React Native (Expo) com mecânicas de jogo: tarefas reais dão moedas e XP para invocar pets que sobem de nível, fundem, evoluem e partem em expedições, enquanto as sequências premeiam a consistência.',
+    },
+    impact: {
+      en: 'Covers mobile product work end to end: local-first persistence with save migrations, scheduling logic, TypeScript game systems and Android builds with EAS.',
+      pt: 'Cobre trabalho de produto mobile de ponta a ponta: persistência local com migração de saves, lógica de agendamento, sistemas de jogo em TypeScript e builds Android com EAS.',
+    },
+    tags: ['React Native', 'Expo', 'TypeScript', 'Mobile', 'Game Design'],
+    repositoryUrl: 'https://github.com/pedro7161/Growra',
+  },
 ];
 
 const CONTACTS: ContactEntrySource[] = [
@@ -517,7 +543,7 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       eyebrow: 'Selected Work',
       title: 'Projects worth opening before the interview',
       lead: 'A focused project tab with current public work, live links, and repository access.',
-      projectMeta: 'Angular · Public project',
+      projectMeta: 'Public project',
       liveLabel: 'Open Live Project',
       repositoryLabel: 'View Repository',
       websiteLabel: 'Open Website',
@@ -571,7 +597,7 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       eyebrow: 'Trabalho em Destaque',
       title: 'Projetos que vale a pena abrir antes da entrevista',
       lead: 'Um separador focado em trabalho público atual, links live e acesso direto ao repositório.',
-      projectMeta: 'Angular · Projeto público',
+      projectMeta: 'Projeto público',
       liveLabel: 'Abrir Projeto Live',
       repositoryLabel: 'Ver Repositório',
       websiteLabel: 'Abrir Website',
