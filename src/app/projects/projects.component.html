@@ -38,14 +38,21 @@
                   </a>
                 }
               } @else {
+                @if (project.playStoreUrl) {
+                  <a class="primary-action text-sm" [href]="project.playStoreUrl" target="_blank" rel="noreferrer">
+                    {{ page.copy.projectPage.playStoreLabel }}
+                  </a>
+                }
                 @if (project.liveUrl) {
                   <a class="primary-action text-sm" [href]="project.liveUrl" target="_blank" rel="noreferrer">
                     {{ page.copy.projectPage.liveLabel }}
                   </a>
                 }
-                <a class="secondary-action text-sm" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">
-                  {{ page.copy.projectPage.repositoryLabel }}
-                </a>
+                @if (project.repositoryUrl) {
+                  <a class="secondary-action text-sm" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">
+                    {{ page.copy.projectPage.repositoryLabel }}
+                  </a>
+                }
               }
             </div>
           </div>

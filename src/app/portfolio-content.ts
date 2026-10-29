@@ -40,9 +40,10 @@ interface ProjectEntrySource {
   impact: LocalizedText;
   tags: string[];
   liveUrl?: string;
-  repositoryUrl: string;
+  repositoryUrl?: string;
   websiteUrl?: string;
   gameUrl?: string;
+  playStoreUrl?: string;
 }
 
 interface ContactEntrySource {
@@ -94,6 +95,7 @@ interface PortfolioCopy {
     repositoryLabel: string;
     websiteLabel: string;
     gameLabel: string;
+    playStoreLabel: string;
     profileLabel: string;
     githubEyebrow: string;
     moreTitle: string;
@@ -138,9 +140,10 @@ export interface ProjectEntry {
   impact: string;
   tags: string[];
   liveUrl?: string;
-  repositoryUrl: string;
+  repositoryUrl?: string;
   websiteUrl?: string;
   gameUrl?: string;
+  playStoreUrl?: string;
 }
 
 export interface ContactEntry {
@@ -171,6 +174,8 @@ const PORTFOLIO_LINKS = {
   gameRepo: 'https://github.com/pedro7161/Space_idle_Clicker',
   portalSiegeWebsite: 'https://pedro7161.github.io/portal-siege-website/',
   portalSiegeGame: 'https://pedro7161.github.io/Portal-Siege-pages/',
+  growraPlay: 'https://play.google.com/store/apps/details?id=com.growra.app',
+  shardmarchPlay: 'https://play.google.com/store/apps/details?id=com.pedro7161.shardmarch',
   email: 'mailto:pedro.ramos9@hotmail.com',
   phone: 'tel:+351968495576',
 };
@@ -454,15 +459,29 @@ const PROJECTS: ProjectEntrySource[] = [
   {
     title: 'Growra',
     description: {
-      en: 'A React Native (Expo) habit tracker with game mechanics: real tasks earn coins and XP, which summon pets that level, fuse, evolve and go on expeditions, while streaks reward consistency.',
-      pt: 'Uma app de hábitos em React Native (Expo) com mecânicas de jogo: tarefas reais dão moedas e XP para invocar pets que sobem de nível, fundem, evoluem e partem em expedições, enquanto as sequências premeiam a consistência.',
+      en: 'A to-do list and habit tracker with companions that grow as you get things done, published on Google Play. Tasks and habits, a work-shift schedule, custom groups you can share as codes, a Journey that never resets, and decoratable companion rooms.',
+      pt: 'Uma lista de tarefas e hábitos com companheiros que crescem à medida que fazes as coisas, publicada no Google Play. Tarefas e hábitos, um horário de turnos, grupos próprios partilháveis por código, uma Jornada que nunca recomeça e quartos de companheiros para decorar.',
     },
     impact: {
-      en: 'Covers mobile product work end to end: local-first persistence with save migrations, scheduling logic, TypeScript game systems and Android builds with EAS.',
-      pt: 'Cobre trabalho de produto mobile de ponta a ponta: persistência local com migração de saves, lógica de agendamento, sistemas de jogo em TypeScript e builds Android com EAS.',
+      en: 'A live product built end to end: local-first persistence with versioned save migrations, recurrence and DST-safe scheduling, share codes without a backend, in-app purchase and rewarded ads, EAS builds and Play releases.',
+      pt: 'Um produto em produção feito de ponta a ponta: persistência local com migrações de saves versionadas, recorrências e agendamento seguro com a hora de verão, códigos de partilha sem backend, compra na app e anúncios com recompensa, builds EAS e lançamentos no Play.',
     },
-    tags: ['React Native', 'Expo', 'TypeScript', 'Mobile', 'Game Design'],
+    tags: ['React Native', 'Expo', 'TypeScript', 'Mobile', 'Google Play'],
     repositoryUrl: 'https://github.com/pedro7161/Growra',
+    playStoreUrl: PORTFOLIO_LINKS.growraPlay,
+  },
+  {
+    title: 'SHARDMARCH',
+    description: {
+      en: 'A match-3 RPG published on Google Play: match gems to power a party of heroes through 250+ handcrafted levels and boss fights, grow a kingdom of 26+ buildings, and collect hero skins. Plays offline.',
+      pt: 'Um RPG de combinar 3 publicado no Google Play: combina gemas para dar força a uma equipa de heróis em 250+ níveis feitos à mão e lutas com chefes, faz crescer um reino com 26+ edifícios e coleciona visuais de heróis. Joga-se offline.',
+    },
+    impact: {
+      en: 'A shipped mobile game: Angular + Phaser on Capacitor, battle systems and balancing, save checkpoints that survive Android closing the app, ads with consent (UMP), and production releases with R8.',
+      pt: 'Um jogo mobile lançado: Angular + Phaser em Capacitor, sistemas de combate e balancing, checkpoints que sobrevivem ao Android fechar a app, anúncios com consentimento (UMP) e lançamentos em produção com R8.',
+    },
+    tags: ['Angular', 'Phaser', 'Capacitor', 'Game Design', 'Google Play'],
+    playStoreUrl: PORTFOLIO_LINKS.shardmarchPlay,
   },
 ];
 
@@ -548,6 +567,7 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       repositoryLabel: 'View Repository',
       websiteLabel: 'Open Website',
       gameLabel: 'Play Game',
+      playStoreLabel: 'Get it on Google Play',
       profileLabel: 'View GitHub Profile',
       githubEyebrow: 'GitHub',
       moreTitle: 'More code on GitHub',
@@ -602,6 +622,7 @@ const COPY: Record<AppLanguage, PortfolioCopy> = {
       repositoryLabel: 'Ver Repositório',
       websiteLabel: 'Abrir Website',
       gameLabel: 'Jogar',
+      playStoreLabel: 'Disponível no Google Play',
       profileLabel: 'Ver Perfil GitHub',
       githubEyebrow: 'GitHub',
       moreTitle: 'Mais código no GitHub',
@@ -653,6 +674,7 @@ export function getPortfolioContent(language: AppLanguage): PortfolioContent {
       repositoryUrl: project.repositoryUrl,
       websiteUrl: project.websiteUrl,
       gameUrl: project.gameUrl,
+      playStoreUrl: project.playStoreUrl,
     })),
     contacts: CONTACTS.map(contact => ({
       label: resolveText(language, contact.label),
